@@ -1,0 +1,41 @@
+
+<view class="page">
+    <view class="page__bd">
+        <view class="my__info">
+            <view>我的余额： <text>{{cash}}</text></view>
+            <view wx:if="{{openScorePay}}">我的积分： <text>{{score}}</text></view>
+        </view>
+        <view class="pay__info">
+            <view class="pay-title">当前要支付的金额（元）：</view>
+            <view class="section__pay">
+               <text class="money">{{realMoney}}</text>
+            </view>
+            <block wx:if="{{openBalancePay}}">
+                <view class="score-view" wx:if="{{ maxCash > 0 }}">
+                    可使用{{realCash}}余额抵扣 {{realCash}}元
+                    <switch bindchange="openBalanceBtn"/>
+                </view>
+            </block>
+            <block wx:if="{{openScorePay && maxCashNoScore}}">
+                <view class="score-view" wx:if="{{ score > 0 }}">
+                    可使用{{realScore}}积分抵扣 {{realScore}}元
+                    <switch bindchange="openScoreBtn"/>
+                </view>
+            </block>
+ 
+            <block wx:if="{{hb > 0 && canuse}}">
+                <view class="score-view">
+                    可使用{{realhb}}红包金额抵扣 {{realhb2}}元
+                    <switch bindchange="openHbBtn"/>
+                </view>
+                <view class="back" wx:if="{{backCash > 0}}">剩下{{backCash}}元将退回到余额</view>
+            </block> 
+
+            <view class="pay__btns">
+                <button type="primary" bindtap="orderWxPay">确认支付</button>
+            </view>
+        </view>
+
+    </view>
+</view>
+

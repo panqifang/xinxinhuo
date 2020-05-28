@@ -1,0 +1,216 @@
+page, .page,.page__hd {
+    height: 100%;
+    position: relative;
+    background: #f8f8f8;
+}
+
+.user-orders {
+    border-top: 1rpx solid rgba(203, 203, 203, 0.1);
+    padding-left: 274rpx;
+    box-sizing: border-box;
+    background: #f6f6f6;
+    height: 100%;
+    overflow: hidden;
+}
+.shop-scroll {
+    border-right: 1rpx solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 0;
+    width: 274rpx;
+    top: 0;
+    height: 100vh;
+}
+.shop-item {
+    padding: 20rpx;
+    box-sizing: border-box;
+    display: flex;
+    margin-bottom: 30rpx;
+}
+.logoinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10rpx;
+    box-sizing: border-box;
+}
+.logoinfo .title {
+    font-size: 30rpx;
+    color: #666666;
+    margin-bottom: 10rpx;
+}
+.logoinfo .hot {
+    font-size: 26rpx;
+    color: #999999;
+}
+.shop-active {
+    background: #ffffff;
+    box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+.shop-active  .title {
+    color: #18a234;
+}
+
+
+/*  */
+.orders-page {
+    display: none;
+}
+.order-scroll {
+    height: 100vh;
+}
+.orders-item {
+    background: #ffffff;
+    box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+    margin: 16rpx;
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+}
+
+.orders-item .logo {
+    width: 90rpx;
+    height: 90rpx;
+    display: block;
+    margin: 20rpx;
+}
+.orders-item .nickname {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20rpx 0;
+}
+.orders-item .nickname .name {
+    font-size: 28rpx;
+    color: #666666;
+}
+.orders-item .nickname .time {
+    font-size: 26rpx;
+    color: #999999;
+    display: flex;
+    padding-left: 20rpx;
+}
+.money-tip {
+    color: #f60;
+    margin: 0 8rpx;
+}
+.money-def {
+    color: #333;
+    margin: 0 8rpx;
+}
+.give-btn {
+    font-size: 28rpx;
+    display: flex;
+    align-items: center;
+    color: #f60;
+    margin-right: 20rpx;
+}
+.give-btn text {
+    font-size: 28rpx;
+}
+.up__box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.line {
+    width: 50rpx;
+    height: 30rpx;
+    margin-right: 20rpx;
+}
+.up {
+    color: green
+}
+.down {
+    color: #f60;
+}
+
+.logo {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.page__show {
+    display: block;
+}
+
+.no__up {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+/*hb  */
+.popup__container {
+    background: none;
+}
+.popup__mask {
+    background: rgba(0,0,0,.6);
+}
+
+
+.img-popup {
+    overflow: hidden;
+    width: 600rpx;
+    height: 757rpx;
+    position: relative;
+}
+.hb_img {
+    width: 600rpx;
+    height: 757rpx;
+}
+.hb__close {
+    padding: 40rpx 20rpx 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hb_img__close {
+    width: 70rpx;
+    height: 70rpx;
+}
+.hb_get_money {
+    font-size: 46rpx;
+    color: red;
+    padding-right: 20rpx;
+}
+.hb_money {
+    position: absolute;
+    width: 600rpx;
+    left: 0;
+    top: 310rpx;
+    text-align: center;
+}
+
+
+.img-popup_6a60ed12 {
+    overflow: hidden;
+    width: 600rpx;
+    height: 862rpx;
+    position: relative;
+}
+.hb_img_6a60ed12 {
+    width: 600rpx;
+    height: 851rpx;
+}
+.hb_money_6a60ed12 {
+    position: absolute;
+    width: 600rpx;
+    left: 0;
+    top: 468rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.hb_money_6a60ed12 .hb_get_money {
+    color: #ffffff;
+    margin-right: 240rpx;
+}
+
+/*  */
+.morebtn {
+    margin: 10rpx;
+    text-align: center;
+    padding: 10rpx;
+    font-size: 30rpx;
+    color: #888888;
+}

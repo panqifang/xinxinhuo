@@ -1,0 +1,22 @@
+<view class="page">
+  <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell" bindtap='callphone' data-mobile="13081373026">
+          <view class="weui-cell__bd">本溪招商加盟</view>
+          <view class="weui-cell__ft">13081373026</view>
+      </view>
+      <view class="weui-cell" bindtap='callphone' data-mobile="18004252263">
+          <view class="weui-cell__bd">丹东市加盟热线</view>
+          <view class="weui-cell__ft">18004252263</view>
+      </view>
+      <view class="weui-cell" bindtap='callphone' data-mobile="13019997088">
+          <view class="weui-cell__bd">其它地区</view>
+          <view class="weui-cell__ft">13019997088</view>
+      </view>
+      <view class="weui-cell" bindtap='callphone' data-mobile="0429-8888403">
+          <view class="weui-cell__bd">24小时服务热线</view>
+          <view class="weui-cell__ft">0429-8888403</view>
+      </view>
+  </view>
+</view>
+
+<!-- 本溪招商加盟：13081373026；丹东市加盟热线：18004252263；其它地区：13019997088，24小时服务热线0429-8888403 -->
