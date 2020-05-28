@@ -1,0 +1,105 @@
+.log-top {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    background: #f6f6f6;
+    left: 0;
+    top: 0;
+}
+
+.balance-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 240rpx;
+}
+
+.balance-text {
+    font-size: 40rpx;
+}
+
+.money {
+    font-size: 50rpx;
+}
+
+.balance-tool {
+    background: #fff;
+    height: 106rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20rpx;
+}
+
+.balance-tool .weui-btn {
+    margin: 0;
+}
+
+.section {
+    display: flex;
+}
+
+.log-title {
+    margin-top: 20rpx;
+    padding-left: 20rpx;
+}
+
+.listpay {
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    margin-top: 20rpx;
+}
+
+.listpay-type {
+    padding: 24rpx 40rpx;
+    font-size: 50rpx;
+}
+
+.listpay-shop {
+    flex: 1;
+}
+
+.listpay-detail {
+    flex: 1;
+}
+
+.listpay-appname, .listpay-date {
+    margin-bottom: 6rpx;
+    font-size: 28rpx;
+}
+
+.listpay-shopname, .listpay-pay {
+    font-size: 28rpx;
+}
+
+.listpay-pay {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20rpx;
+}
+
+.in {
+    color: red;
+}
+
+.out {
+    color: green;
+}
+
+.notdata {
+    display: flex;
+    justify-content: center;
+    padding: 20rpx;
+}
+
+.list {
+    padding-top: 420rpx;
+}
+
+.more {
+    display: flex;
+    justify-content: center;
+    padding: 10rpx;
+}

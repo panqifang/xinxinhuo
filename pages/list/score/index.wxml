@@ -1,0 +1,31 @@
+
+<import src="/zanui/loadmore/index.wxml" />
+<import src="../../template/temp.wxml" />
+
+<view class="container">
+    <view class="user-view">
+        <template data="{{userInfo}}" is="header"/>
+        <block wx:for="{{orders}}" wx:key="{{index}}">
+            <view>
+                <view class="log-list flex-row">
+                    <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                    <view class="flex-column">
+                        <view class="title">{{item.nickname}}</view>
+                        <view class="time">操作时间：{{item.create_time}}</view>
+                    </view>
+                    <view class="money">
+                        <text>{{item.score}} 积分</text>
+                        <view wx:if="{{item.type === 10}}" style="color:#008000;font-size:12px;">排队转积分</view>
+                        <view wx:elif="{{item.type === 20}}" style="color:red;font-size:12px;">积分转入</view>
+                        <view wx:elif="{{item.type === 21}}" style="color:#4FA5FF;font-size:12px;">积分转出</view>
+                        <view wx:elif="{{item.type === 30}}" style="color:blue;font-size:12px;">积分抵现</view>
+                        <view wx:elif="{{item.type === 11}}" style="color:blue;font-size:12px;">积分转排队</view>
+                        <view wx:elif="{{item.type === 40}}" style="color:orange;font-size:12px;">系统发放</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <template wx:if="{{nodata}}" is="no-data"/>
+    <template is="zan-loadmore" data="{{loading}}" />
+</view>

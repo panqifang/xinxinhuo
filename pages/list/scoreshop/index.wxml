@@ -1,0 +1,82 @@
+
+<import src="/zanui/loadmore/index.wxml" />
+<import src="../../template/temp.wxml" />
+
+<view class="container">
+    <view class="user-view" wx:if="{{role === 10}}">
+        <template data="{{userInfo}}" is="header"/>
+        <view wx:if="{{listType === 0}}">
+            <block wx:for="{{orders}}" wx:key="{{index}}">
+                <navigator url="/pages/list/scorelog/index?shopid={{item.shopid}}&orderType=0" >
+                    <view class="log-list flex-row">
+                        <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                        <view class="flex-column">
+                            <view class="title">{{item.nickname}}</view>
+                            <view class="time">订单时间：{{item.last_time}}</view>
+                        </view>
+                        <view class="money">
+                            <text>{{item.num}}单</text>
+                            <text>{{item.money}} 积分</text>
+                        </view>
+                        <view class="zan-icon zan-icon-arrow"></view>
+                    </view>
+                </navigator>
+            </block>
+        </view>
+        <view wx:if="{{listType === 1}}">
+            <block wx:for="{{orders}}" wx:key="{{index}}">
+                <navigator url="/pages/list/scorelog/index?shopid={{item.shopid}}&orderType=1" >
+                    <view class="log-list flex-row">
+                        <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                        <view class="flex-column">
+                            <view class="title">{{item.nickname}}</view>
+                            <view class="time">最近消费：{{item.last_time}}</view>
+                        </view>
+                        <view class="money">
+                            <text>{{item.num}}单</text>
+                            <text>{{item.money}} 积分</text>
+                        </view>
+                        <view class="zan-icon zan-icon-arrow"></view>
+                    </view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+    <view class="user-view" wx:if="{{role === 20}}">
+        <template data="{{userInfo}}" is="header"/>
+        <view wx:if="{{listType === 0}}">
+            <block wx:for="{{orders}}" wx:key="{{index}}">
+                <view>
+                    <view class="log-list flex-row">
+                        <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                        <view class="flex-column">
+                            <view class="title">{{item.nickname}}</view>
+                            <view class="time">订单时间：{{item.create_time}}</view>
+                        </view>
+                        <view class="money">
+                            <text>兑换 {{item.money}} 积分</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view wx:if="{{listType === 1}}">
+            <block wx:for="{{orders}}" wx:key="{{index}}">
+                <view>
+                    <view class="log-list flex-row">
+                        <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                        <view class="flex-column">
+                            <view class="title">{{item.nickname}}</view>
+                            <view class="time">消费时间：{{item.create_time}}</view>
+                        </view>
+                        <view class="money">
+                            <text>消费 {{item.score}} 积分</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <template wx:if="{{nodata}}" is="no-data"/>
+    <template is="zan-loadmore" data="{{loading}}" />
+</view>

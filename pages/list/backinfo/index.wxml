@@ -1,0 +1,37 @@
+<view class="container">
+    <view class="pagetop">
+        <view class="money">当前可领取奖励：<text>¥ {{cash}}</text></view>
+        <button class="zan-btn zan-btn--small" bindtap="removeQueueTap" style="color:blue;">领取</button>
+    </view>
+    <view class="panel">
+        <view class="panel-top">
+            <text>鼓励金最近5次变动</text>
+        </view>
+        <view class="panel-body">
+            <canvas canvas-id="areaCanvas" class="canvas"></canvas>
+        </view>
+    </view>
+    <view class='tip'>
+        温馨提示：
+            <view style="padding: 10rpx 0 4rpx 20rpx">
+                ①每笔消费有鼓励金，鼓励金随时可领取
+            </view>
+            <view style="padding: 4rpx 0 4rpx 20rpx">
+                 ②一般情况下，鼓励金随着消费人数的增加而增加，随着领取鼓励金人数的增加而减少
+            </view>
+    </view>
+    <view class="panel">
+        <view class="panel-top">
+            <text>前20奖励情况</text>
+        </view>
+        <view class="panel-body">
+            <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchLineHandler"></canvas>
+        </view>
+    </view>
+    <button class="zan-btn zan-btn--small" bindtap="topBackingList" style="color:blue;">店铺队列</button>
+    <view class="myorder">
+        <text>该订单当前排名{{slot}}名</text>
+    </view>
+    
+    <!-- <button type="primary" bindtap="updateData">更新数据</button> -->
+</view>

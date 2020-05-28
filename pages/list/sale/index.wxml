@@ -1,0 +1,68 @@
+
+<import src="/zanui/loadmore/index.wxml" />
+<import src="../../template/temp.wxml" />
+
+<view class="container">
+    <view class="shop-view" >
+        <!--tab  -->
+        <view class="top">
+            <view class="sesstion-top">
+            共 <view>{{total}} 单 <text>销售额：￥ {{totaFees}}</text> / <text>折扣：￥ {{discout}}</text></view>
+                <button class="zan-btn zan-btn zan-btn--small" bindtap='export'>导出</button>
+            </view>
+            <view class="date-section">
+                <view class="section__title">开始日期：</view>
+                <view class="sec-date">
+                    <picker mode="date" start="2017-01-01" value="{{startDate}}" end="{{beginEndDate}}" bindchange="bindStartDateChange">
+                        <view class="picker">
+                            {{startDate}}
+                        </view>
+                    </picker>
+                </view>
+                <view>时间：</view>
+                <view class="sec-date">
+                    <picker mode="time" value="{{startTime}}" end="{{beginEndTime}}" bindchange="bindStartTimeChange">
+                        <view class="picker">
+                            {{startTime}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class="date-section">
+                <view class="section__title">结束日期：</view>
+                <view class="sec-date">
+                    <picker mode="date" value="{{endDate}}" start="{{lastStartDate}}" end="{{lastEndDate}}" bindchange="bindEndDateChange">
+                        <view class="picker">
+                            {{endDate}}
+                        </view>
+                    </picker>
+                </view>
+                <view>时间：</view>
+                <view class="sec-date">
+                    <picker mode="time" value="{{lastTime}}" start="{{lastStartTime}}" end="{{lastEndTime}}" bindchange="bindEndTimeChange">
+                        <view class="picker">
+                            {{lastTime}}
+                        </view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+        <view class="lists" wx:if="{{orders.length > 0}}">
+            <block wx:for="{{orders}}" wx:key="{{index}}">
+                <view class="log-list flex-row">
+                    <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                    <view class="flex-column">
+                        <view class="title">应收: ¥ {{item.pay_fee}} ：{{item.shop_rate/10}}折</view>
+                        <view class="time">{{item.create_time}}</view>
+                    </view>
+                    <view class="money">实收￥{{item.shop_money}}
+                        <view class="ddh" wx:if="{{item.ddh_reward == 10}}">天天乐</view>
+                        <view class="ddh" wx:if="{{item.ddh_reward == 20}}">天天乐</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <template wx:if="{{nodata}}" is="no-data"/>
+    <template is="zan-loadmore" data="{{loading}}" />
+</view>

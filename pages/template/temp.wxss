@@ -1,0 +1,13 @@
+
+/*
+*   header
+*/
+.userinfo-row { position: fixed;  width: 100%; z-index: 9; top: 0px; border-top: 1px solid #f6f6f6;background: #ffffff; }
+.userinfo-row .userinfo-avatar { width: 100rpx; height: 100rpx; margin: 30rpx; border-radius: 50%;}
+.userinfo-column .userinfo-avatar { width: 128rpx; height: 128rpx; margin: 5rpx; border-radius: 50%; }
+.userinfo-nickname { flex: 1; overflow: hidden; }
+.userinfo-row button { margin-right: 20rpx; }
+/*
+* not-data
+*/
+.nodata{width: 100%;padding-top: 200rpx;box-sizing: border-box;display: flex;justify-content: center; align-items: center;}

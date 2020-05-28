@@ -1,0 +1,57 @@
+<import src="../../template/temp.wxml" />
+<import src="/zanui/switch/index.wxml" />
+<import src="/zanui/toast/index.wxml" />
+
+<view class="container" wx:if="{{role === 20 }}">
+    <template data="{{userInfo}}" is="header" />
+    <view class="user-view">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+        <view class="zan-panel-title">基本信息</view>
+        <view class="zan-panel">
+            <view class="zan-cell zan-field">
+                <view class="zan-cell__hd zan-field__title">商铺名称</view>
+                <input type="text" placeholder="请输入商户名称" name="title" class="zan-field__input zan-cell__bd" value="{{shopInfo.title}}" />
+            </view>
+
+            <view class="zan-cell zan-field">
+                <view class="zan-cell__hd zan-field__title">联系方式</view>
+                <input type="number" placeholder="请输入联系方式" name="phone" class="zan-field__input zan-cell__bd" value="{{shopInfo.phone}}" />
+            </view>
+        </view>
+        <view wx:if="{{!backchecked}}">
+            <view class="zan-panel-title">让利比例(商家让利占销售额的百分比)</view>
+            <view class="zan-panel">
+                <view class="zan-cell zan-field">
+                    <view class="zan-cell__hd zan-field__title">让利比例：</view>
+                    <slider class="zan-field__input zan-cell__bd" name="pool_rate" min="0" max="100" value="{{shopInfo.pool_rate}}" show-value bindchange="poolRateChange" />
+                    <view class="zan-cell__ft">%</view>
+                </view>
+            </view>
+        </view>
+        <view class="zan-panel-title">店铺简介</view>
+        <view class="zan-panel">
+            <view class="zan-cell zan-field">
+                <view class="zan-cell__hd zan-field__title">店铺简介</view>
+                <textarea class="zan-field__input zan-cell__bd" name="content" auto-height placeholder="输入店铺一些简介" value="{{shopInfo.content}}" />
+            </view>
+        </view>
+
+        <view class="zan-panel-title">店铺地址</view>
+        <view class="zan-panel">
+            <view class="zan-cell zan-field">
+                <view class="zan-cell__hd zan-field__title">店铺地址</view>
+                <input type="text" placeholder="输入店铺地址，可点击选择" value="{{address}}" name="address" class="zan-field__input zan-cell__bd" />
+                <view class="zan-cell__ft">
+                    <button class="zan-btn zan-btn--mini zan-btn--default" bindtap="selectAdress">选择地址</button>
+                </view>
+            </view>
+        </view>
+
+        <view class="zan-btns">
+            <button class="zan-btn zan-btn--primary" form-type="submit">保存设置</button>
+        </view>
+    </form>
+    </view>
+    <template wx:if="{{nodata}}" is="no-data" />
+</view>
+<template is="zan-toast" data="{{ zanToast }}"></template>

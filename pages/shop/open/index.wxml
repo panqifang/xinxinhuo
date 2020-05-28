@@ -1,0 +1,43 @@
+
+<import src="../../template/temp.wxml" />
+
+<view class="container">
+    <template data="{{userInfo}}" is="header"/>
+    <view class="user-view" wx:if="{{role === 40 || role === 30}}">
+        <view class="open-title">当前可开店区域：</view>
+        <block wx:for="{{citys}}" wx:key="{{index}}">
+            <view class="zan-panel">
+                <view class="zan-cell zan-cell--access" data-cityid="{{item.city}}" bindtap="selectAgent">
+                    <view class="zan-cell__bd">{{item.cityname}}</view>
+                    <view class="zan-cell__ft">点击查询</view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <template wx:if="{{nodata}}" is="no-data"/>
+</view>
+
+<view class="popup-bottom zan-popup zan-popup--bottom {{ showBottomPopup ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask" catchtap="toggleBottomPopup"></view>
+    <view class="zan-popup__container">
+        <view class="zanbtns">
+            <view class="btn-title">选择代理商开店：</view>
+            <button type="default" size="mini"  bindtap="closePopup">
+                取消
+            </button>
+        </view>
+        <block wx:for="{{agents}}" wx:key="{{index}}">
+            <view class="zan-panel">
+                <view class="zan-cell" bindtap="createOpenShopQr" data-uid="{{item.uid}}">
+                    <image class="zan-cell__icon icon" src="{{item.avatar}}"></image>
+                    <view class="zan-cell__bd">
+                        <view class="agent-list-top">代理商姓名： <text>{{item.realname}}</text></view>
+                        <view class="agent-list-text">开店区域： <text>{{item.name}}</text></view>
+                        <view class="agent-list-text">开店数量： <text>{{item.num}} 个</text></view>
+                    </view>
+                    <view class="zan-cell__ft">点击开店</view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

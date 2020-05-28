@@ -1,0 +1,23 @@
+
+.user-view { padding-top: 140rpx; }
+.shop-view { padding-top: 60rpx; }
+
+.shop-title { font-size: 14px; color: #999999; padding: 20rpx; }
+
+.mini-btn { font-size:12px; }
+
+.btn-setting {
+    margin:30rpx;
+    color:white;
+    padding-left:14px;
+    padding-right:14px;
+    box-sizing:border-box;
+    font-size:36rpx;
+    text-align:center;
+    text-decoration:none;
+    line-height:2.4;
+    border-radius:5px;
+    -webkit-tap-highlight-color:transparent;
+    background-color: #00923F;
+    border:1px solid rgba(0, 0, 0, 0.1);
+}

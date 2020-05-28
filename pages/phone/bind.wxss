@@ -1,0 +1,41 @@
+/* pages/phone/bind.wxss */
+.container {
+    padding-top: 0;
+}
+
+.userinfo-row {
+    position: static;
+}
+.bind-top {
+    display: flex;
+    flex-direction: column;
+    padding: 60rpx 0 30rpx;
+    justify-content: center;
+    align-items: center;
+}
+.avatr {
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 50%;
+    margin-bottom: 20rpx;
+}
+.name {
+    font-size: 14px;
+    color: #666666;
+}
+.msg {
+    padding: 30rpx;
+    font-size: 12px;
+    color: #999999;
+}
+.bind-no-view {
+    display: flex;
+    font-size: 14px;
+    color: #666666;
+    padding: 30rpx;
+    justify-content: center;
+    align-items: center;
+}
+.bind-no-view .mobile {
+    color: green;
+}

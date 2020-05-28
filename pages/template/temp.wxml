@@ -1,0 +1,18 @@
+<!--没有数据  -->
+<template name="no-data">
+    <view class="nodata">
+        <view wx:if="{{errs.msgText}}">
+            <view>{{errs.text}}</view>
+        </view>
+        <view  wx:else>暂时没有数据</view>
+    </view>
+</template>
+
+<!--页面头部  -->
+<template name="header">
+    <view class="userinfo-row flex-row">
+        <image class="userinfo-avatar" src="{{userInfo.logo}}" background-size="cover"></image>
+        <view class="userinfo-nickname">{{userInfo.name}}</view>
+        <button type="default" size="mini" bindtap="topBack">返回</button>
+    </view>
+</template>

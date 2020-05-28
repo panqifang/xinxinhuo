@@ -1,0 +1,81 @@
+<import src="../../template/temp.wxml" />
+<import src="/zanui/field/index.wxml" />
+<import src="/zanui/toast/index.wxml" />
+
+<view class="container">
+    <template data="{{userInfo}}" is="header" />
+    <view class="con-body">
+        <view class="zan-panel-title">请输入提现信息：</view>
+        <form bindsubmit="cashSubmit" bindreset="formReset">
+            <view class="zan-panel">
+                <view class="zan-cell zan-field" wx:if="{{banks.length > 0}}">
+                    <view class="zan-cell__hd zan-field__title">开户银行</view>
+                    <view class="zan-field__input zan-cell__bd" bindtap="selectkhBank">{{bankSelectText}}</view>
+                </view>
+                <view class="zan-cell zan-field">
+                    <view class="zan-cell__hd zan-field__title">银行卡号</view>
+                    <input type="number" placeholder="请输入银行卡号码" name="card" value="{{shopInfo.card}}" class="zan-field__input zan-cell__bd" />
+                </view>
+                <view class="zan-cell zan-field">
+                    <view class="zan-cell__hd zan-field__title">姓名</view>
+                    <input type="text" placeholder="请输入银行卡对应姓名" name="card_name" value="{{shopInfo.realname}}" class="zan-field__input zan-cell__bd" />
+                </view>
+            </view>
+            <view class="zan-panel">
+                <view class="zan-cell zan-field">
+                    <view class="zan-cell__hd zan-field__title">手机号码</view>
+                    <input type="number" maxlength="11" placeholder="请输入手机号码" name="mobile" value="{{shopInfo.mobile}}" class="zan-field__input zan-cell__bd" bindinput="bindMobileChange" />
+                </view>
+                <view class="zan-cell zan-field">
+                    <view class="zan-cell__hd zan-field__title">验证码</view>
+                    <input type="number" maxlength="6" placeholder="请输入短信验证码" name="code" class="zan-field__input zan-cell__bd" />
+                    <view class="zan-cell__ft">
+                        <button bindtap="getSmsCode" class="zan-btn zan-btn--mini zan-btn--primary">{{getCodeText}}</button>
+                    </view>
+                </view>
+            </view>
+            <view class="can-cash">
+                我当前可领取金额为：
+                <text>¥ {{shopInfo.cash}}</text>
+            </view>
+            <view class="zan-panel">
+                <view class="zan-cell zan-field">
+                    <view class="zan-cell__hd zan-field__title">领取金额</view>
+                    <input type="digit" placeholder="请输入领取金额" name="cash" class="zan-field__input zan-cell__bd" />
+                </view>
+            </view>
+            <view class="cash-tip">
+                {{shopInfo.remark}}
+            </view>
+            <view class="tip">
+                免责声明：请认真填写以上信息，并核对。如因输入错误导致资金损失，公司不承担责任。
+            </view>
+            <view class="zan-btns">
+                <button class="zan-btn zan-btn--primary" form-type="submit">领取</button>
+            </view>
+        </form>
+    </view>
+</view>
+<template is="zan-toast" data="{{ zanToast }}"></template>
+
+<view class="popup-bottom zan-popup zan-popup--bottom {{ showBank ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask" catchtap="toggleBottomPopup"></view>
+    <view class="zan-popup__container">
+        <view class="input">
+            <input bindinput="bindReplaceInput" value="{{seach}}" class="seach" placeholder="搜查银行" auto-focus/>
+        </view>
+        <scroll-view scroll-y class="scorll-view" >
+            <view class="banks" wx:if="{{showbanks.length > 0}}">
+                <block wx:for="{{showbanks}}" wx:key="{{index}}">
+                    <view class="bank-item" bindtap="selectCashOutBank" data-bank="{{item}}">
+                        <view> {{item.bank_name}}</view>
+                        <view class="zan-icon {{ item.bank_id == bankid? 'zan-icon-passed': 'zan-icon-check' }}"></view>
+                    </view>
+                </block>
+            </view>
+            <view class="no-found" wx:else>
+                <text>未找到你要的银行</text>
+            </view>
+        </scroll-view>
+    </view>
+</view>

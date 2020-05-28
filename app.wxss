@@ -1,0 +1,120 @@
+@import "zanui/index.wxss";
+/*template wxss  */
+@import "pages/template/temp.wxss";
+@import "pages/template/agress.wxss";
+
+.container { position: relative; background: #f6f6f6;overflow: hidden;min-height: 100vh;box-sizing: border-box;padding: 15px 0; }
+
+
+.zan-tab { position: fixed;top: 0;background: #ffffff;z-index: 1;}
+.zan-tab__item--selected .zan-tab__title{color:#00923F;border-bottom:2px solid #00923F}
+
+/*list  */
+.lists {padding: 10rpx;margin: 0;padding-top: 20rpx;}
+.flex-row {display: flex;align-items: center;justify-content: space-between;}
+.flex-row .zan-icon { color: #e5e5e5; margin-right: 20rpx; }
+.flex-column {display: flex;align-items: left;flex-direction: column;flex: 1;}
+.log-list {background-color: #fefefe;margin: 6rpx 0rpx;}
+.log-list .logo {width: 80rpx;height: 80rpx;margin: 20rpx;border-radius: 50%;}
+.log-list .money {color: darkred;display: flex;align-items: center;flex-direction: column;margin-right: 30rpx;}
+.log-list .money text { font-size: 30rpx; }
+.log-list .title {color: #555;font-size: 34rpx;}
+.log-list .time {color: #555;font-size: 24rpx;}
+.log-list .num {font-size: large;margin-left: 20rpx;}
+.loading-tip {width: 100%;height: 80rpx;line-height: 80rpx;text-align: center;color: #888;}
+.mylist {background-color: #b6e6ff;}
+.pettext {font-size: smaller;}
+
+.bottom-center {display: flex;justify-content: flex-end;padding: 20rpx;}
+.bottom-center text {font-size: 12px;color: #999999 }
+
+
+.pay-success {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+.pay-success .pay-mash {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background: rgba(0,0,0,.6);
+}
+.pay-success .pay-body {
+    position: relative;
+    z-index: 100;
+    width: 500rpx;
+    overflow: hidden;
+}
+.pay-success .title {
+    padding: 20rpx;
+    color: #333333;
+    font-size: 32rpx;
+}
+.pay-success .pb-content {
+    padding: 30rpx 20rpx;
+    position: absolute;
+    bottom: 100rpx;
+    left: 0;
+}
+.hot-tip {
+    position: absolute;
+    left: 0;
+    width: 500rpx;
+    top:60rpx;
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 12px;
+    text-align: center;
+}
+.hot-tip text {
+    font-size: 50rpx;
+    color: ffffff;
+}
+.pay-success .zhu {
+    font-size: 26rpx;
+    color: #ffffff;
+    margin-top: 20rpx;
+    margin-bottom: 10rpx;
+}
+.pay-success .msg {
+    padding-left: 30rpx;
+    margin-bottom: 10rpx;
+}
+.pay-success .pay-footer {
+    padding: 0 20rpx;
+    display: flex;
+    justify-content: flex-end;
+}
+.pay-success .pay-footer .btn {
+    margin-top: 50rpx;
+    padding: 10rpx 20rpx;
+    display: block;
+    font-size: 30rpx;
+    color: #ffffff;
+}
+
+.imgbg {
+    width: 500rpx;
+    display: block;
+    border-radius: 40rpx;
+}
+.pay-success .money {
+    position: absolute;
+    left: 0;
+    width: 500rpx;
+    top:250rpx;
+    color: red;
+    font-weight: 400;
+    font-size: 30px;
+    text-align: center;
+}

@@ -1,0 +1,425 @@
+.userinfo-top {
+    position: relative;
+    width: 100%;
+    height: 325rpx;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.userinfo-name {
+    color: #333;
+    margin-top: 20rpx;
+}
+
+.userinfo-avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+}
+
+.hbbtn {
+    position: absolute;
+    left: 30rpx;
+    top: 40rpx;
+}
+
+.userinfo-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50rpx;
+}
+
+.userinfo-nickname {
+    margin-top: 30rpx;
+    color: #333;
+}
+
+.suggust {
+    background: #fff;
+    width: 150rpx;
+    border-radius: 6px;
+    color: #666;
+    padding: 8rpx 0;
+    text-align: center;
+    font-size: 28rpx;
+}
+
+.bindphone {
+    background: #fff;
+    width: 150rpx;
+    border-radius: 6px;
+    color: #666;
+    padding: 8rpx 0;
+    text-align: center;
+    font-size: 28rpx;
+    top: 110rpx;
+}
+
+.userhb {
+    background: #fff;
+    width: 150rpx;
+    border-radius: 6px;
+    color: #666;
+    padding: 8rpx 0;
+    text-align: center;
+    font-size: 28rpx;
+    top: 176rpx;
+}
+
+.user-role {
+    position: absolute;
+    right: 60rpx;
+    top: 40rpx;
+    color: #333;
+}
+
+.notive {
+    height: 56rpx;
+    background: #fff;
+    margin: 20rpx 0;
+    display: flex;
+    align-items: center;
+    padding: 0 20rpx;
+}
+
+.cashout-tar {
+    height: 106rpx;
+    background: #fff;
+    margin: 20rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    position: relative;
+}
+
+.paytime {
+    justify-content: flex-start;
+    padding-left: 50rpx;
+    align-items: center;
+}
+
+.paymens {
+    flex: 1;
+}
+
+.weui-btn {
+    padding: 8rpx 20rpx !important;
+    margin: 0;
+    position: absolute;
+    right: 60rpx;
+    top: 26rpx;
+    font-size: 12px;
+    border: 1px solid #19ac3b;
+    border-radius: 3px;
+    color: #19ac3b;
+}
+
+.jm-btn {
+    padding: 16rpx 40rpx !important;
+    font-size: 34rpx;
+    position: static;
+    margin-right: 30rpx;
+}
+
+.flists {
+    background: #fff;
+    overflow: hidden;
+}
+
+.flists-row {
+    display: flex;
+    border-bottom: 1px solid #f8f8f8;
+}
+
+.flists-col {
+    width: 33.33%;
+    height: 187rpx;
+    border-right: 1px solid #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-name {
+    font-size: 30rpx;
+}
+
+.num {
+    font-size: 28rpx;
+    color: #666;
+}
+
+.item-icon {
+    width: 70rpx;
+    height: 70rpx;
+    margin: 10rpx 0;
+}
+
+.msg {
+    padding-left: 20rpx;
+}
+
+.btn-box {
+    padding: 20rpx 40rpx;
+}
+
+.btn-setting {
+    border-radius: 5px;
+    background: #31ad37;
+    color: #fff;
+    text-align: center;
+    padding: 20rpx 0;
+}
+
+.cashout-tarbar {
+    height: 106rpx;
+    background: #fff;
+    margin: 20rpx 0;
+    display: flex;
+    align-items: center;
+    color: #666;
+    position: relative;
+}
+
+.cashout-tarbar .text {
+    padding-left: 30rpx;
+    flex: 1;
+}
+
+.cashout-tarbar .icon-text {
+    margin-right: 50rpx;
+    font-size: 12px;
+    color: #333;
+}
+
+.cashout-tarbar:after {
+    content: " ";
+    display: inline-block;
+    height: 18rpx;
+    width: 18rpx;
+    border-width: 2rpx 2rpx 0 0;
+    border-color: #888;
+    border-style: solid;
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: absolute;
+    top: 50%;
+    margin-top: -10rpx;
+    right: 28rpx;
+}
+
+.find-order {
+    top: 120rpx;
+}
+
+.cashout-bar {
+    justify-content: flex-start;
+    align-items: center；;
+}
+
+.cashout-bar text {
+    padding-left: 50rpx;
+    flex: 1;
+    font-size: 16px;
+}
+
+.cashout-bar .weui-btn {
+    position: static;
+    margin: 0 30rpx;
+}
+
+.home-list .logo{
+    width: 60rpx;
+    height: 60rpx;
+}
+.home-list .title {
+    font-size: 15px;
+}
+.home-list .money text {
+    font-size: 15px;
+    color: #333333;
+}
+.home-list .cebter {
+    flex: 1;
+}
+.home-list .log-list {
+    margin-bottom: 20rpx;
+}
+.morebtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20rpx;
+}
+.morebtn text {
+    font-size: 12px;
+}
+.data-show {
+    display: flex;
+    align-items: center;
+    padding-top: 40rpx;
+}
+.ds-col {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.ds-col .item-name {
+    font-size: 28rpx;
+}
+.ds-col .num {
+    font-size: 28rpx;
+}
+
+/*  */
+.container {
+    padding: 0;
+}
+
+.see-more {
+    display: flex;
+    padding: 20rpx;
+    justify-content: center;
+}
+.see-more text {
+    font-size: 30rpx;
+    color: #999999;
+}
+
+.nodatas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 120rpx;
+}
+.nodatas .img {
+    width: 300rpx;
+    margin-bottom: 20rpx;
+}
+
+.nodatas text {
+    font-size: 28rpx;
+    color: #999999;
+}
+.flex-let {
+    justify-content: flex-start;
+    padding-left: 20rpx;
+}
+
+.user-orders {
+    border-top: 1rpx solid rgba(203, 203, 203, 0.1);
+    padding-left: 274rpx;
+    box-sizing: border-box;
+    background: #f6f6f6;
+}
+.shop-scroll {
+    border-right: 1rpx solid rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 0;
+    width: 274rpx;
+    top: 0;
+    height: 100%;
+}
+.shop-item {
+    padding: 20rpx;
+    box-sizing: border-box;
+    display: flex;
+    margin-bottom: 30rpx;
+}
+.logoinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10rpx;
+    box-sizing: border-box;
+}
+.logoinfo .title {
+    font-size: 30rpx;
+    color: #666666;
+    margin-bottom: 10rpx;
+}
+.logoinfo .hot {
+    font-size: 26rpx;
+    color: #999999;
+}
+.shop-active {
+    background: #ffffff;
+    box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+.shop-active  .title {
+    color: #18a234;
+}
+
+.orders-item {
+    background: #ffffff;
+    box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.1);
+    margin: 20rpx;
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+}
+
+.orders-item .logo {
+    width: 90rpx;
+    height: 90rpx;
+    display: block;
+    margin: 20rpx;
+}
+.orders-item .nickname {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20rpx 0;
+}
+.orders-item .nickname .name {
+    font-size: 28rpx;
+    color: #666666;
+}
+.orders-item .nickname .time {
+    font-size: 26rpx;
+    color: #999999;
+    display: flex;
+    padding-left: 20rpx;
+}
+.money-tip {
+    color: #f60;
+    margin: 0 8rpx;
+}
+.money-def {
+    color: #333;
+    margin: 0 8rpx;
+}
+.give-btn {
+    font-size: 30rpx;
+    display: flex;
+    align-items: center;
+    margin-right: 20rpx;
+    color: #f60;
+}
+.line {
+    width: 50rpx;
+    height: 30rpx;
+    margin-right: 40rpx;
+}
+.up {
+    color: green
+}
+.down {
+    color: #f60;
+}
+
+.logo {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}

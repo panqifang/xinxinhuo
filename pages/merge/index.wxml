@@ -1,0 +1,18 @@
+<view class="container">
+    <view class="content">
+        <text class="page-top-title">合并以下用户数据：</text>
+        <view wx:if="{{items.length > 0}}">
+            <block wx:for="{{items}}" wx:key="">
+                <view class="list-item">
+                    <image class="avatar" src="{{item.avatar}}"></image>
+                    <view class="list-text">
+                        <text class="list-text-name">{{item.nickname}}</text>
+                        <text class="list-text-other">创建时间：{{item.create_time}}</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view wx:if="{{items.length > 0}}" class="btn-bind" bindtap="mergeClic">点击合并</view>
+    </view>
+
+</view>

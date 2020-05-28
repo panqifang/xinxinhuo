@@ -1,0 +1,106 @@
+.container {
+    padding: 0;
+}
+.lists {
+    padding: 0;
+    padding-top: 130rpx;
+}
+
+.map-view {
+  overflow: hidden;
+}
+
+.btn {
+  background-color: rgba(240, 240, 240, 0.9);
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  box-shadow: 0px 2px 5px #333;
+  padding: 10rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.btn-user {
+  margin: 20rpx 40rpx 20rpx 0rpx;
+  width: 60rpx;
+}
+
+.btn-goto {
+  font-size: 46rpx;
+  font-weight: bold;
+  width: 60rpx;
+  margin: 20rpx 0rpx 20rpx 40rpx;
+}
+
+.btn-scan {
+  background-color: rgba(245, 87, 75, 0.9);
+  font-size: 36rpx;
+  color: white;
+  padding: 5px 40rpx;
+  border-radius: 60rpx;
+}
+
+.btn-user image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.navigator-arrow {
+  padding-right: 56rpx;
+  position: relative;
+  font-size: smaller;
+  color: #00923F;
+}
+
+.navigator-arrow:after {
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #888;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  margin-top: -10rpx;
+  right: 28rpx;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lists .logo {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.lists .flex-row {
+  margin-top: 2rpx;
+  background-color: #fefefe;
+}
+
+.lists .flex-column {
+  flex: 1;
+}
+
+.userinfo-row {
+  width: 100%;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: #fefefe;
+  display: flex;
+  padding: 30rpx;
+  justify-content: space-between;
+}
+
+.time {
+  color: #555;
+  font-size: small;
+}

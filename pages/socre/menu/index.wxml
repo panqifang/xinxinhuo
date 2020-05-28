@@ -1,0 +1,24 @@
+
+<import src="../../template/temp.wxml" />
+
+<view class="container">
+    <template data="{{userInfo}}" is="header"/>
+    <view class="content">
+        <navigator wx:if="{{role === 10 || role === 20}}" url="/pages/list/scoreshop/index?orderType=0" open-type="navigate" class="navigator">
+            <view class="navigator-text">积分兑换订单</view>
+            <view class="navigator-arrow">详情</view>
+        </navigator>
+        <navigator wx:if="{{role === 10 || role === 20}}"  url="/pages/list/scoreshop/index?orderType=1" open-type="navigate" class="navigator">
+            <view class="navigator-text">积分消费订单</view>
+            <view class="navigator-arrow">明细</view>
+        </navigator>
+        <view class="navigator" bindtap="intoGive">
+            <view class="navigator-text">积分转赠</view>
+            <view class="navigator-arrow">转赠</view>
+        </view>
+        <navigator url="/pages/list/score/index" open-type="navigate" class="navigator">
+            <view class="navigator-text">积分转赠明细</view>
+            <view class="navigator-arrow">查看</view>
+        </navigator>
+    </view>
+</view>

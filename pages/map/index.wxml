@@ -1,0 +1,26 @@
+<view wx:if="{{mapShow}}" class="map-view" style="height:100vh;">
+  <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" controls="{{controls}}" scale="15" markers="{{markers}}" bindmarkertap="markerTap" show-location="true" bindcontroltap="controlTap" bindregionchange="regionchange" style="width: 100%; height: 105vh;"></map>
+</view>
+<view wx:else class="container">
+    <view class="userinfo-row">
+      <view>附近共有
+        <text>{{lists.length}}</text> 家店铺</view>
+      <button bindtap="backMapTap" type="default" size="mini">返回地图</button>
+    </view>
+    <view class="lists">
+        <block wx:for="{{lists}}" wx:for-item="listItem" wx:key="shopid">
+        <view bindtap="navigationTap" data-id="{{listItem.shopid}}" class="flex-row">
+            <image class="logo" src="{{listItem.logo}}" background-size="cover"></image>
+            <view class="flex-column">
+            <view class="userinfo-nickname">{{listItem.title}}</view>
+            <view class="time">
+                热度: {{listItem.pay_times}}人·次 距离:
+                <text wx:if="{{listItem.range_km}}">{{listItem.range_km}}Km</text>
+                <text wx:else>{{listItem.range}}m</text>
+            </view>
+            </view>
+            <view class="navigator-arrow">导航</view>
+        </view>
+        </block>
+    </view>
+</view>

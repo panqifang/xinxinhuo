@@ -1,0 +1,167 @@
+.container {
+    padding-top: 0;
+}
+.shop-info {
+    display: flex;
+    align-items: center;
+    padding: 30rpx;
+    margin-bottom: 10rpx;
+}
+.top-logo {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+.top-title {
+    flex: 1;
+}
+.top-hot {
+    color: #666666;
+}
+
+.shop-body {
+    background: #ffffff;
+    padding: 30rpx 0;
+    border-top: 1rpx solid #e5e5e5;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+.top-hot text {
+    color: #4b0;
+}
+
+.zan-field--wrapped {
+    padding: 22px 15px;
+    border-color: green;
+    margin-bottom: 60rpx;
+}
+.zan-field__placeholder {
+    font-size: 16px;
+}
+.pay-title {
+    font-size: 14px;
+    color: #333333;
+    padding-left: 30rpx;
+    margin-bottom: 20rpx;
+}
+.backed-icon {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+}
+.cell-name {
+    font-size: 14px;
+}
+.cell-time {
+    font-size: 12px;
+    color: #999999;
+}
+.no-data {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #999999;
+}
+
+.popup-bottom .zan-popup__container {
+    left: 0;
+    right: 0;
+}
+.zan-popup__mask {
+    background: rgba(0,0,0,.6);
+}
+.pay-popup {
+    background: #ffffff;
+}
+.pay-popup-title {
+    padding: 20rpx;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.pay-popup-title text {
+    font-size: 14px;
+    color: #666666;
+}
+.pay-popup-body {
+    padding: 20rpx;
+}
+.order-cash {
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888888;
+    padding: 30rpx 0;
+}
+.order-cash text{
+    font-size: 20px;
+    color: #333333;
+}
+.my-item {
+    font-size: 14px;
+    color: #666666;
+    padding: 10rpx 20rpx;
+}
+.my-item text {
+    color: #333333;
+}
+
+.pay-popup-btns {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+.cash-pay {
+    flex: 1;
+    display: flex;
+    padding: 20rpx 0;
+    justify-content: center;
+    font-size: 14px;
+    background: #666666;
+    color: #ffffff;
+    
+}
+
+.wx-pay {
+    flex: 1;
+    display: flex;
+    padding: 20rpx 0;
+    justify-content: center;
+    font-size: 14px;
+    background: #4b0;
+    color: #ffffff;
+}
+.result-pay {
+    flex: 2;
+    display: flex;
+    padding: 20rpx 0;
+    justify-content: center;
+    font-size: 14px;
+    position: relative;
+}
+.result-pay::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: 0;
+    background: #e5e5e5;
+}
+
+.radio-group {
+    padding: 10rpx 20rpx;
+}
+.radio-group .radio {
+    font-size: 14px;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    padding: 10rpx;
+    border-radius: 10rpx;
+}
+.radio-group .radio text {
+    margin-left: 10rpx;
+}

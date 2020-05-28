@@ -1,0 +1,105 @@
+<import src="/zanui/loadmore/index.wxml" />
+<import src="/zanui/tab/index.wxml" />
+<import src="../../template/temp.wxml" />
+
+<view class="container">
+    <view wx:if="{{role === 10}}">
+        <template class="tab" is="zan-tab" data="{{tab: tab, componentId: 'tab'}}"></template>
+        <block wx:if="{{tab.selectedId === 'order'}}">
+            <view class="order-box">
+                <block wx:for="{{orders}}" wx:key="{{index}}">
+                    <view class="backlist" wx:if="{{item.switcher == 4}}">
+                        <view class="backlist-item">
+                            <view class="back-top">
+                                <view class="title-tip">
+                                    <text class="text">共享链支付凭证</text>
+                                     <view class="date">{{item.create_time}}</view> 
+                                </view>
+                            </view>
+                            <view class="backing-cash">
+                                <view class="text">当前可领取鼓励金</view>
+                                <view class="money">￥{{item.relMomey}}</view>
+                                <view>
+                                <button class="zan-btn zan-btn--small" bindtap="removeQueueTap" data-orderid="{{item.orderid}}" data-iszn="{{item.switcher}}" data-money="{{item.relMomey}}" data-slot="{{item.slot}}">领取鼓励金</button>
+                                </view>
+                            </view>
+                            <view class="back-body">
+                                <view class="time">队列排名：<text style="color: green;">{{item.slot}}</text></view>
+                                <view class="time">订单时间：{{item.create_time}}</view>
+                                <view class="time" wx:if="{{item.oldMoney.length > 1}}">
+                                    最近{{item.oldMoney.length}}次变动金额：
+                                    <block wx:for="{{item.oldMoney}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{idx}}">
+                                        <text wx:if="{{item.oldMoney.length - 1 == idx}}" class="change-money">¥ {{itemName}}</text>
+                                        <text wx:else class="change-money">¥ {{itemName}},</text>
+                                    </block>
+                                </view>
+                            </view>
+                            <!-- <view class="btip">
+                                温馨提示：
+                                <view style="padding: 10rpx 0 4rpx 0">
+                                    ① 每笔消费有鼓励金，奖励金随时可领取
+                                </view>
+                                <view style="padding: 4rpx 0 4rpx 0">
+                                    ② 一般情况下，鼓励金随着消费人数的增加而增加，随着领取鼓励金人数的增加而减少
+                                </view>
+                            </view> -->
+                        </view>
+                        <view class="order-tip">
+                            <view class="btninfo">
+                                <view class="detail-btn" bindtap="backInfo" data-slot="{{item.slot}}" data-orderid="{{item.orderid}}" data-cash="{{item.relMomey}}" data-shopid="{{item.shopid}}">查看详情</view>
+                                <view class="zan-icon zan-icon-arrow"></view>
+                            </view>
+                        </view>
+                    </view>
+                    <view wx:else>
+                        <view class="log-list flex-row" bindtap="removeDefaultQueueTap" data-orderid="{{item.orderid}}">
+                            <view class="num">{{item.slot}}</view>  
+                            <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                            <view class="flex-column">
+                            <view class="title">{{item.nickname}}</view>
+                            <view class="time">订单时间：{{item.create_time}}</view>
+                            </view>
+                            <view class="money">￥{{item.relMomey}}</view>
+                        </view>
+                        <view style="padding-top: 6rpx;"></view>
+                    </view>
+                </block>
+            </view>
+        </block>
+        <block wx:else>
+            <view wx:for="{{orders}}" wx:key="{{index}}">
+                <view class="log-list flex-row">
+                    <view wx:if="{{tab.selectedId === 'queue'}}" class="num">{{index + 1}}</view>  
+                    <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                    <view class="flex-column">
+                    <view class="title">{{item.nickname}}</view>
+                    <view class="time">订单时间：{{item.create_time}}</view>
+                    </view>
+                    <view wx:if="{{tab.selectedId === 'ddh'}}" class="money">￥{{item.total_fee}}</view>
+                    <view wx:else class="money"> <view wx:if="{{tab.selectedId !== 'ddh'}}" class='glj'>可领取鼓励金</view> ￥{{item.relMomey}}</view>
+                </view>
+                <view style="padding-top: 6rpx;"></view>
+            </view>
+        </block>
+    </view>
+    <template wx:if="{{nodata}}" is="no-data"/>
+    <template is="zan-loadmore" data="{{loading}}" />
+</view>
+
+<view class="popup-bottom zan-popup zan-popup--bottom {{ show ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask"></view>
+    <view class="zan-popup__container">
+        <view class="ancc">
+            <!-- <view class="ancc-item" bindtap="addScore">
+                <text>兑换{{money}}积分退出排队</text>
+            </view> -->
+            <view class="ancc-item tip-item" bindtap="outQueue">
+                <text>兑换{{money}}元退出排队</text>
+                <text class="tip">（以实际到账为准）</text>
+            </view>
+            <view class="ancc-item cannel" bindtap="cannelOut">
+                <text>取消</text>
+            </view>
+        </view>
+    </view>
+</view>

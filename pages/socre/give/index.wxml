@@ -1,0 +1,58 @@
+<import src="../../template/temp.wxml" />
+<import src="/zanui/field/index.wxml" />
+<import src="/zanui/toast/index.wxml" />
+<view class="container">
+    <template data="{{userInfo}}" is="header"/>
+    <view class="search-view" wx:if="{{canGive}}">
+         <view class="myscore">
+            <text class="login-tip">我当前积分：{{myscore}}</text>
+        </view>
+        <block wx:if="{{!giveView}}">
+            <view class="search-box">
+                <text class="login-tip">查询可转积分用户：</text>
+            </view>
+            <template is="zan-field" data="{{ componentId: 'mobile', mode: 'wrapped', title: '手机号码', type: 'input', inputType: 'number', placeholder: '输入手机查询要赠送用户', left: true }}"></template>
+            <view class="btns">
+                <button class="zan-btn zan-btn--primary" bindtap="searchUser" disabled="{{!canSearch}}">点击查询</button>
+            </view>
+        </block>
+        <block wx:else>
+             <view class="search-box">
+                <text class="login-tip">转给的用户：</text>
+            </view>
+            <view class="to-user">
+                <view class="log-list flex-row">
+                    <image class="logo" src="{{toUser.avatar}}" background-size="cover"></image>
+                    <view class="flex-column">
+                    <view class="title">{{toUser.nickname}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="search-box">
+                <text class="login-tip">输入要转赠积分数量：</text>
+            </view>
+            <template is="zan-field" data="{{ componentId: 'score', mode: 'wrapped', title: '转赠数量', type: 'input', inputType: 'digit', placeholder: '输入要转赠积分数量', left: true }}"></template>
+            <view class="btns">
+                <button class="zan-btn zan-btn--primary" bindtap="give" disabled="{{!giveBtn}}">确认转赠</button>
+            </view>
+        </block>
+    </view>
+</view>
+<view class="popup-bottom zan-popup zan-popup--bottom {{ showBottomPopup ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask" catchtap="toggleBottomPopup"></view>
+    <view class="zan-popup__container">
+        <view class="select-top"><text>选择需要转赠的用户：</text> <button bindtap="closePopup" class="zan-btn zan-btn--small">取消</button></view>
+        <block wx:for="{{users}}" wx:key="{{index}}">
+            <view class="log-list flex-row" bindtap="select" data-item="{{item}}">
+                <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                <view class="flex-column">
+                <view class="title">{{item.nickname}}</view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+
+<template is="zan-toast" data="{{ zanToast }}"></template>
+
+

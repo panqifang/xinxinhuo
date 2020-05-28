@@ -1,0 +1,46 @@
+
+<import src="/zanui/loadmore/index.wxml" />
+<import src="../../template/temp.wxml" />
+<import src="/zanui/tab/index.wxml" />
+
+<view class="container">
+    <view class="shop-view" wx:if="{{role === 10}}">
+        <!--tab  -->
+        <template class="tab" is="zan-tab" data="{{tab: tab, componentId: 'tab'}}"></template>
+        <view class="lists" wx:if="{{orders.length > 0}}">
+            <block wx:for="{{orders}}" wx:key="{{index}}">
+                <view class="log-list flex-row" bindtap="receiveTap" data-orderid="{{item.orderid}}" data-isback="{{item.is_backed}}">
+                    <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                    <view class="flex-column">
+                        <view class="title">{{item.nickname}}</view>
+                        <view class="time">订单时间：{{item.create_time}}</view>
+                    </view>
+                    <view wx:if="{{tab.selectedId === 'backed'}}" class="money">
+                        ￥{{item.money}}
+                    </view>
+                    <view wx:else class="money">
+                        <view style="font-size:12px;">订单金额: ￥{{item.total_fee}}</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+
+    <view class="user-view" wx:if="{{role === 20}}">
+        <template data="{{userInfo}}" is="header"/>
+        <block wx:for="{{orders}}" wx:key="{{index}}">
+            <view class="log-list flex-row">
+                <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                <view class="flex-column">
+                    <view class="title">{{item.nickname}}</view>
+                    <view class="time">订单时间：{{item.create_time}}</view>
+                </view>
+                <view class="money">
+                    <text wx:if="{{item.money !== '0.00' && item.money != 0}}">￥{{item.money}}</text>
+                </view>
+            </view>
+        </block>
+    </view>
+    <template wx:if="{{nodata}}" is="no-data"/>
+    <template is="zan-loadmore" data="{{loading}}" />
+</view>

@@ -1,0 +1,16 @@
+
+<import src="/zanui/toast/index.wxml" />
+<import src="../template/agress.wxml" />
+
+<view class="container">
+    <template is="partner"/>
+    <form bindsubmit="toPartnerTap" class="btn-area btn-area-pd">
+        <view class="section">
+            <view class="section_title">请输入提现手机号：</view>
+            <input class="mobile" type="number" value="{{mobile}}" maxlength="11" minlength="11" name="mobile" placeholder="手机号，提现时需要验证" />
+        </view>
+        <button class="zan-btn zan-btn--primary" form-type="submit">成为合伙人</button>
+        <button class="zan-btn" bindtap="openShopCannel">取消</button>
+    </form>
+</view>
+<template is="zan-toast" data="{{ zanToast }}"></template>

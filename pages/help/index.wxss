@@ -1,0 +1,410 @@
+/* pages/help/index.wxss */
+.container {
+    padding: 0;
+}
+.add {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.btn {
+    font-size: 28rpx;
+    color: #666666;
+}
+
+
+.user-view { padding-top: 140rpx; }
+.shop-view { padding-top: 60rpx; }
+
+.userinfo-top {
+    position: relative;
+    width: 100%;
+    height: 325rpx;
+    overflow: hidden;
+    display: flex;
+}
+
+.userinfo-name {
+    color: #333;
+    margin-top: 20rpx;
+}
+
+.userinfo-avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+}
+
+.hbbtn {
+    position: absolute;
+    left: 30rpx;
+    top: 40rpx;
+}
+
+.userinfo-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50rpx;
+}
+
+.userinfo-nickname {
+    margin-top: 30rpx;
+    color: #333;
+}
+
+.suggust {
+    background: #fff;
+    width: 150rpx;
+    border-radius: 6px;
+    color: #666;
+    padding: 8rpx 0;
+    text-align: center;
+    font-size: 28rpx;
+}
+
+.bindphone {
+    background: #fff;
+    width: 150rpx;
+    border-radius: 6px;
+    color: #666;
+    padding: 8rpx 0;
+    text-align: center;
+    font-size: 28rpx;
+    top: 110rpx;
+}
+
+.userhb {
+    background: #fff;
+    width: 150rpx;
+    border-radius: 6px;
+    color: #666;
+    padding: 8rpx 0;
+    text-align: center;
+    font-size: 28rpx;
+    top: 176rpx;
+}
+
+.user-role {
+    position: absolute;
+    right: 60rpx;
+    top: 40rpx;
+    color: #333;
+}
+
+.notive {
+    height: 56rpx;
+    background: #fff;
+    margin: 20rpx 0;
+    display: flex;
+    align-items: center;
+    padding: 0 20rpx;
+}
+
+.cashout-tar {
+    height: 106rpx;
+    background: #fff;
+    margin: 20rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    position: relative;
+}
+
+.paytime {
+    justify-content: flex-start;
+    padding-left: 50rpx;
+    align-items: center;
+}
+
+.paymens {
+    flex: 1;
+}
+
+.weui-btn {
+    padding: 8rpx 20rpx !important;
+    margin: 0;
+    position: absolute;
+    right: 60rpx;
+    top: 26rpx;
+    font-size: 12px;
+    border: 1px solid #19ac3b;
+    border-radius: 3px;
+    color: #19ac3b;
+}
+
+.jm-btn {
+    padding: 16rpx 40rpx !important;
+    font-size: 34rpx;
+    position: static;
+    margin-right: 30rpx;
+}
+
+.flists {
+    background: #fff;
+    overflow: hidden;
+}
+
+.flists-row {
+    display: flex;
+    border-bottom: 1px solid #f8f8f8;
+}
+
+.flists-col {
+    width: 33.33%;
+    height: 187rpx;
+    border-right: 1px solid #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-name {
+    font-size: 30rpx;
+}
+
+.num {
+    font-size: 28rpx;
+    color: #666;
+}
+
+.item-icon {
+    width: 70rpx;
+    height: 70rpx;
+    margin: 10rpx 0;
+}
+
+.msg {
+    padding-left: 20rpx;
+}
+
+.btn-box {
+    padding: 20rpx 40rpx;
+}
+
+.btn-setting {
+    border-radius: 5px;
+    background: #31ad37;
+    color: #fff;
+    text-align: center;
+    padding: 20rpx 0;
+}
+
+.cashout-tarbar {
+    height: 106rpx;
+    background: #fff;
+    margin: 20rpx 0;
+    display: flex;
+    align-items: center;
+    color: #666;
+    position: relative;
+}
+
+.cashout-tarbar .text {
+    padding-left: 30rpx;
+    flex: 1;
+}
+
+.cashout-tarbar .icon-text {
+    margin-right: 50rpx;
+    font-size: 12px;
+    color: #333;
+}
+
+.cashout-tarbar:after {
+    content: " ";
+    display: inline-block;
+    height: 18rpx;
+    width: 18rpx;
+    border-width: 2rpx 2rpx 0 0;
+    border-color: #888;
+    border-style: solid;
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: absolute;
+    top: 50%;
+    margin-top: -10rpx;
+    right: 28rpx;
+}
+
+.find-order {
+    top: 120rpx;
+}
+
+.cashout-bar {
+    justify-content: flex-start;
+    align-items: center；;
+}
+
+.cashout-bar text {
+    padding-left: 50rpx;
+    flex: 1;
+    font-size: 16px;
+}
+
+.cashout-bar .weui-btn {
+    position: static;
+    margin: 0 30rpx;
+}
+.add-title {
+    font-size: 24rpx;
+    color: #666666;
+    padding-top: 20rpx;
+    padding-left: 10rpx;
+}
+.tcr .paymens{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10rpx;
+    font-size: 26rpx;
+}
+
+/*  */
+.topbar {
+    display: flex;
+    background: #ffffff;
+    margin-bottom: 20rpx;
+    height: 240rpx;
+}
+.meminfo {
+    flex: 1;
+    padding: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.userinfo-view {
+    display: flex;
+    align-items: center;
+    margin-left: 20rpx;
+}
+.avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    border: 4rpx solid #f1f1f1;
+}
+.view-title {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 80rpx;
+    font-size: 34rpx;
+    color: #333333;
+}
+.right-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.t-cashd {
+    font-size: 24rpx;
+    color: #999999;
+    padding-left: 20rpx;
+    margin-top: 20rpx;
+}
+.userrole {
+    font-size: 24rpx;
+    margin-left: 20rpx;
+    color: #999999;
+}
+.u-btns {
+    display: flex;
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+.u-btn {
+    font-size: 24rpx;
+    padding: 6rpx 10rpx;
+    border-radius: 10rpx;
+    background: #31ad37;
+    color: #ffffff;
+    margin-right: 20rpx;
+}
+.swiper {
+    flex: 1;
+    height: 400rpx;
+}
+
+.swiper-avatar {
+    position: absolute;
+    left: 0;
+    top: 10rpx;
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+}
+
+.swiper-item-user {
+    position: relative;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding-left: 80rpx;
+    box-sizing: border-box;
+    display: flex;
+}
+.swiper-tip {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    font-size: 28rpx;
+}
+.yan {
+    font-size: 28rpx;
+    margin-right: 10rpx;
+}
+.co-r {
+    color: red;
+    margin: 0 10rpx;
+}
+.mt0 {
+    margin-top: 0;
+}
+.swp-tiem {
+    height: 300rpx;
+}
+.l-name {
+    font-size: 28rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+}
+.tips {
+    padding-left: 20rpx;
+    color: red;
+}
+.usname {
+    font-size: 32rpx;
+    color: #666666;
+    padding-left: 20rpx;
+}
+.t-name {
+    font-size: 28rpx;
+    padding-left: 20rpx;
+}
+.ds {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10rpx;
+}
+.suggest-btn {
+    font-size: 30rpx;
+    color: #666666;
+    margin-right: 20rpx;
+}
+
+.swiper__box {
+    background: #ffffff;
+    padding: 20rpx 50rpx;
+    margin-bottom: 20rpx;
+}
+.l-tsts {
+    width: 300rpx;
+}
+.l-tsts text {
+    padding-left: 10rpx;
+}

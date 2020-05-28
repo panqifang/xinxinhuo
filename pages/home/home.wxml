@@ -1,0 +1,169 @@
+<import src="/zanui/loadmore/index.wxml" />
+<view class="container" wx:if="{{init}}">
+    <!--用户  -->
+    <block wx:if="{{info.user.role == 10}}">
+        <view class="nodatas" wx:if="{{nodata}}">
+            <image class="img" mode="widthFix" src='/images/nodata.png'></image>
+            <text>你还没有订单，搜索附近商户开始体验吧！</text>
+        </view>
+        <view class="user-orders" wx:else>
+            <scroll-view wx:if="{{orders.length > 0}}" class="shop-scroll" scroll-y>
+                <block wx:for="{{orders}}" wx:key="{{index}}">
+                    <view class="shop-item {{idx === item.shopid? 'shop-active' : ''}}" bindtap="showShopOrders" data-shopid="{{item.shopid}}">
+                        <image class="logo" src="{{item.logo}}"></image>
+                        <view class="logoinfo">
+                            <view class="title">{{item.title}}</view>
+                            <view class="hot">热度：{{item.num}}</view>
+                        </view>
+                    </view>
+                </block>
+            </scroll-view>
+            
+            <view wx:if="{{shoporders.length > 0}}">
+                <block wx:for="{{shoporders}}" wx:key="{{index}}">
+                    <view class="orders-item" bindtap="backInfo" data-slot="{{item.slot}}" data-orderid="{{item.orderid}}" data-cash="{{item.relMomey}}" data-switcher="{{item.switcher}}" data-shopid="{{item.shopid}}">
+                        <view class="nickname">
+                            <view class="time" style="font-size:30rpx;">
+                                订单金额： <view class="money-def">{{item.total_fee}} </view>元
+                            </view>
+                            <view class="time">
+                                可领取： <view class="money-tip {{item.isdown? 'down' : 'up'}}">{{item.relMomey}} </view>元
+                            </view>
+                        </view>
+                        <image wx:if="{{item.isdown}}" src="/images/down-line.png" class="line" mode="widthFix"></image>
+                        <image wx:else src="/images/up-line.png" class="line" mode="widthFix"></image>
+                        
+                        <view class="give-btn {{item.isdown? 'down' : 'up'}}">
+                            领取
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <template is="zan-loadmore" data="{{loading}}" />
+            <view wx:if="{{canload}}" class="see-more" bindtap="orderSeeMore"><text>查看更多</text></view> 
+
+            <view class="nodatas" wx:if="{{noorders}}">
+                <image class="img" mode="widthFix" src='/images/nodata.png'></image>
+                <text>该店铺暂时没有消费订单</text>
+            </view>
+        </view>
+    </block>
+
+    <view class="userinfo-top" wx:if="{{role == 20 || role == 30 || role == 40 || role == 50}}">
+        <image catchtap="updateUserInfo" class="userinfo-avatar" src="{{userInfo.avatar}}" background-size="cover"></image>
+        <view class="userinfo-name">{{userInfo.nickname}}</view>
+        <view wx:if="{{info.user.role == 50}}" class="user-role">代理商</view>
+        <view wx:if="{{info.user.role == 40}}" class="user-role">服务商</view>
+        <view wx:if="{{info.user.role == 30}}" class="user-role">合伙人</view>
+        <view wx:if="{{info.user.role == 20}}" class="user-role">商户</view>
+    </view>
+    <!-- 商户  -->
+    <block wx:if="{{info.user.role ==20 }}">
+        <view class="cashout-tar cashout-bar">
+            <text>可提现余额：¥ {{info.user.cash}}</text>
+            <navigator url="/pages/cashout/default/index?shopid={{info.shop.shopid}}" class="weui-btn mini-btn">提现</navigator>
+        </view>
+        <view class="flists">
+            <view class="flists-row">
+                <navigator url="/pages/list/sale/index" class="flists-col">
+                    <image class="item-icon" src="/images/djl.png"></image>
+                    <view class="item-name">总销售额</view>
+                    <view class="num">￥{{info.shop.sales}}</view>
+                </navigator>
+                <view bindtap="showShopQe" class="flists-col">
+                    <image class="item-icon" src="/images/sewm.png"></image>
+                    <view class="item-name">我的二维码</view>
+                    <view class="num">总{{info.shop.pay_times}}单</view>
+                </view>
+                <navigator url="/pages/list/backed/index" class="flists-col">
+                    <image class="item-icon" src="/images/yjl.png"></image>
+                    <view class="item-name">已发放奖励</view>
+                    <view class="num">共 {{info.shop.backed_num}} 单 {{info.shop.backed_money}} 元</view>
+                </navigator>
+            </view>
+            <view class="flists-row">
+                <navigator url="/pages/list/cashlog/index" class="flists-col">
+                    <image class="item-icon" src="/images/ydz.png"></image>
+                    <view class="item-name">已提现金额</view>
+                    <view class="num">￥{{info.user.cash_out}}</view>
+                </navigator>
+            </view>
+        </view>
+        <view class="btn-box" style="margin-top:40rpx;">
+            <navigator url="/pages/shop/setting/index" class="btn-setting">设置</navigator>
+        </view>
+    </block>
+    <!--服务商，代理商，合伙人  -->
+    <block wx:if="{{info.user.role == 50 || info.user.role == 40 || info.user.role == 30}}">
+        <view class="cashout-tar cashout-bar">
+            <text>我的余额：¥ {{info.agent.moneyout}}</text>
+            <navigator url="/pages/list/shop/index?m=1" class="weui-btn mini-btn">提现</navigator>
+            <navigator url="/pages/list/balabce/index" class="weui-btn mini-btn">余额记录</navigator>
+        </view>
+        <view class="flists">
+            <view class="flists-row">
+                <navigator url="/pages/list/shop/index?m=0" class="flists-col">
+                    <image class="item-icon" src="/images/yshop.png"></image>
+                    <view class="item-name">已绑定店铺</view>
+                    <view class="num">{{info.agent.shops}} 个</view>
+                </navigator>
+                <navigator url="/pages/list/shop/index?m=2" class="flists-col">
+                    <image class="item-icon" src="/images/wshop.png"></image>
+                    <view class="item-name">未绑定店铺</view>
+                    <view class="num">{{info.agent.unshops}} 个</view>
+                </navigator>
+                <navigator url="/pages/list/shop/index?m=1" class="flists-col">
+                    <image class="item-icon" src="/images/kshop.png"></image>
+                    <view class="item-name">可提现店铺</view>
+                    <view class="num">￥{{info.agent.moneyout}}</view>
+                </navigator>
+            </view>
+            <view class="flists-row">
+                <view wx:if="{{info.user.role == 50}}" class="flists-col">
+                    <image class="item-icon" src="/images/sewm.png"></image>
+                    <view class="item-name">剩余二维码</view>
+                    <view class="num">{{info.agent.num}} 个</view>
+                </view>
+                <view wx:if="{{info.user.role==30 || info.user.role==40}}" class="flists-col">
+                    <image class="item-icon" src="/images/sewm.png"></image>
+                    <view class="item-name">剩余开店数量</view>
+                    <view class="num">{{info.agent.num}} 个</view>
+                </view>
+            </view>
+        </view>
+        <navigator url="/pages/list/cashlog/index" class="cashout-tar">
+            <text>已提现金额：￥{{info.agent.moneyin}}</text>
+        </navigator>
+        <view class="cashout-tarbar" wx:if="{{info.user.role == 40}}" bindtap="createPartnerQr">
+            <text class="text">招募合伙人 {{info.agent.partner_num}}</text>
+            <text class="icon-text">招募</text>
+        </view>
+        <view class="cashout-tarbar" bindtap="openshop">
+            <text class="text">我要开店</text>
+            <text class="icon-text">开店</text>
+        </view>
+    </block>
+</view>
+
+<view class='pay-success' wx:if="{{showTip}}">
+    <view class='pay-mash'></view>
+    <view class="pay-body">
+        <image class="imgbg" mode="widthFix" src='../../images/hb.png'></image>
+        <view class="hot-tip">恭喜你获得商家鼓励金： </view>
+        <view class="money">{{curMoney}} </view>
+        <view class='pb-content'>
+            <view class="zhu">
+                注： 
+            </view>
+            <view class="msg" style="color:#ffffff;font-size:12px;">
+                ① 鼓励金随时可领取
+            </view>
+            <view class="msg" style="color:#ffffff;font-size:12px;">
+                ② 一般情况下，鼓励金随着消费人数的增加而增加，随着领取鼓励金人数的增加而减少
+            </view>
+        </view>
+        <view class='pay-footer'>
+            <view class='btn' bindtap="closeTip">关闭</view>
+        </view>
+    </view>
+</view>

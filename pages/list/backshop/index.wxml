@@ -1,0 +1,48 @@
+
+<import src="/zanui/loadmore/index.wxml" />
+<import src="../../template/temp.wxml" />
+<import src="/zanui/tab/index.wxml" />
+
+<view class="container">
+    <view class="user-view" wx:if="{{role === 10}}">
+        <template data="{{userInfo}}" is="header"/>
+        <block wx:for="{{orders}}" wx:key="{{index}}">
+            <navigator url="/pages/list/backing/index?shopid={{item.shopid}}" >
+                <view class="log-list flex-row">
+                    <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                    <view class="flex-column">
+                        <view class="title">{{item.nickname}}</view>
+                        <view class="time">最近消费：{{item.last_time}}</view>
+                    </view>
+                    <view class="money">
+                        <text>{{item.num}}单</text>
+                        <text wx:if="{{item.money !== '0.00' && item.money != 0}}">￥{{item.money}}</text>
+                    </view>
+                    <view class="zan-icon zan-icon-arrow"></view>
+                </view>
+            </navigator>
+        </block>
+    </view>
+    <view class="shop-view" wx:if="{{role === 20}}">
+        <!--tab  -->
+        <template class="tab" is="zan-tab" data="{{tab: tab, componentId: 'tab'}}"></template>
+        <view class="lists" wx:if="{{orders.length > 0}}">
+            <block wx:for="{{orders}}" wx:key="{{index}}">
+                <view class="log-list flex-row">
+                    <view wx:if="{{tab.selectedId === 'backing'}}" class="num">{{index + 1}}</view>
+                    <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                    <view class="flex-column">
+                    <view class="title">{{item.nickname}}</view>
+                    <view class="time">订单时间：{{item.create_time}}</view>
+                    </view>
+                    <view wx:if="{{tab.selectedId === 'ddhing'}}" class="money">￥{{item.total_fee}}</view>
+                    <view wx:else class="money">￥{{item.money}}
+                        <text class="pettext">奖励{{item.order_pay_rate}}%</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <template wx:if="{{nodata}}" is="no-data"/>
+    <template is="zan-loadmore" data="{{loading}}" />
+</view>

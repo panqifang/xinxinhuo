@@ -1,0 +1,39 @@
+
+<import src="/zanui/toast/index.wxml" />
+
+<view class="container">
+    <view class="bind-top">
+        <image class="avatr" src="{{userInfo.avatar}}"></image>
+        <text class="name">{{userInfo.nickname}}</text>
+    </view>
+    <view class="bind-yes-view" wx:if="{{noBind}}">
+        <form bindsubmit="formSubmit" bindreset="formReset">
+            <view class="zan-panel">
+                <view class="zan-cell zan-field">
+                    <view class="zan-cell__hd zan-field__title">手机号码</view>
+                    <input type="number" maxlength="11" placeholder="请输入手机号码" name="mobile" value="{{shopInfo.mobile}}" class="zan-field__input zan-cell__bd" bindinput="bindMobileChange" />
+                </view>
+
+                <view class="zan-cell zan-field">
+                    <view class="zan-cell__hd zan-field__title">短信验证码</view>
+                    <input type="number" maxlength="6" placeholder="请输入短信验证码" name="code" class="zan-field__input zan-cell__bd" />
+                    <view class="zan-cell__ft">
+                        <button class="zan-btn zan-btn--mini zan-btn--primary" bindtap="getSmsCode">{{getCodeText}}</button>
+                    </view>
+                </view>
+            </view>
+            <view class="zan-btns">
+                <button class="zan-btn zan-btn--primary" form-type="submit">提交</button>
+            </view>
+            <view class="msg">
+            声明：请认真填写以上信息，并核对。如因输入错误导致资金损失，公司不承担责任。
+            </view>
+        </form>
+    </view>
+    <view wx:if="{{isBind}}" class="bind-no-view">
+        <view>
+            你已经绑定手机： <text>{{mobile}}</text>
+        </view>
+    </view>
+</view>
+<template is="zan-toast" data="{{ zanToast }}"></template>

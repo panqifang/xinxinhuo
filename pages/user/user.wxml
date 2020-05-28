@@ -1,0 +1,172 @@
+<view class="container" wx:if="{{init}}">
+    <view class="userinfo-top">
+        <navigator wx:if="{{info.user.role == 10}}" class="hbbtn suggust" url="/pages/suggest/index">投诉/建议</navigator>
+        <navigator wx:if="{{merage}}" class="hbbtn bindphone" url="/pages/merge/index">合并数据</navigator>
+        <navigator wx:if="{{!mobile}}" class="hbbtn bindphone" url="/pages/phone/bind">绑定手机</navigator>
+        <image catchtap="updateUserInfo" class="userinfo-avatar" src="{{userInfo.avatar}}" background-size="cover"></image>
+        <view class="userinfo-name">{{userInfo.nickname}}</view>
+        <view wx:if="{{info.user.role == 50}}" class="user-role">代理商</view>
+        <view wx:if="{{info.user.role == 40}}" class="user-role">服务商</view>
+        <view wx:if="{{info.user.role == 30}}" class="user-role">合伙人</view>
+        <view wx:if="{{info.user.role == 20}}" class="user-role">商户</view>
+        <view wx:if="{{info.user.role == 10}}" class="user-role">用户</view>
+    </view>
+    <!--用户  -->
+    <block wx:if="{{info.user.role == 10}}">
+        <view class="cashout-tar cashout-bar">
+        <text>我的余额：¥ {{info.user.cash}}</text>
+        <navigator wx:if="{{appType == 'vip'}}" url="/pages/cashout/default/index" class="weui-btn mini-btn">领取</navigator>
+        <navigator wx:if="{{appType == 'vip'}}" url="/pages/list/balabce/index" class="weui-btn mini-btn">余额记录</navigator>
+        </view>
+        <view class="flists">
+            <view class="flists-row">
+                <navigator url="/pages/list/backshop/index" open-type="switchTab" class="flists-col">
+                    <image class="item-icon" src="/images/djl.png"></image>
+                    <view class="item-name">待领取订单</view>
+                    <view class="num">￥{{info.user.backing_money}}</view>
+                </navigator>
+                <navigator url="/pages/list/backed/index" class="flists-col">
+                    <image class="item-icon" src="/images/yjl.png"></image>
+                    <view class="item-name">已领取订单</view>
+                    <view class="num">￥{{info.user.backed_money}}</view>
+                </navigator>
+                <navigator wx:if="{{appType == 'vip'}}" url="/pages/list/cashlog/index" class="flists-col">
+                    <image class="item-icon" src="/images/ydz.png"></image>
+                    <view class="item-name">已到账订单</view>
+                    <view class="num">￥{{info.user.cash_out}}</view>
+                </navigator>
+                <view url="/pages/logs/list" wx:if="{{appType == 'shop' || appType == 'vipshop'}}" class="flists-col">
+                    <image class="item-icon" src="/images/ydz.png"></image>
+                    <view class="item-name">已到账订单</view>
+                    <view class="num">￥{{info.user.cash_out}}</view>
+                </view>
+            </view>
+            <view class="flists-row">
+                <navigator url="/pages/socre/menu/index" class="flists-col">
+                <image class="item-icon" src="/images/score.png"></image>
+                <view class="item-name">我的积分</view>
+                <view class="num">{{info.user.score}}</view>
+                </navigator>
+            </view>
+        </view>
+        <view class="cashout-tar cashout-bar">
+            <text class="paymens">已参与人次：{{info.num}} </text>
+            <navigator url="/pages/league/index" class="weui-btn mini-btn">我要加盟</navigator>
+        </view>
+        <view class="msg" style="color:#999;font-size:12px;">
+            温馨提示：
+        </view>
+        <view wx:if="{{appType == 'shop' || appType == 'vipshop'}}" class="msg" style="font-size:12px;color:red;">
+            本系统不做领取，获得惊喜后请到店领取。
+        </view>
+        <view class="msg" style="color:#999;font-size:12px;">
+            参与有惊喜，最高免单，惊喜包括（积分、商品），活动规则和解释权归店家所有,本工具仅提供营销服务
+        </view>
+    </block>
+    <!-- 商户  -->
+    <block wx:if="{{info.user.role ==20 }}">
+        <view class="cashout-tar cashout-bar">
+            <text>我的余额：¥ {{info.user.cash}}</text>
+            <navigator wx:if="{{appType == 'vip' || appType == 'vipshop'}}" url="/pages/cashout/default/index?shopid={{info.shop.shopid}}" class="weui-btn mini-btn">提现</navigator>
+            <navigator wx:if="{{appType == 'vip' || appType == 'vipshop'}}" url="/pages/list/balabce/index" class="weui-btn mini-btn">余额记录</navigator>
+        </view>
+        <view class="flists">
+            <view class="flists-row">
+                <view class="flists-col">
+                    <image class="item-icon" src="/images/money.png"></image>
+                    <view class="item-name">储钱罐</view>
+                    <view class="num">￥{{info.shop.pool}}</view>
+                </view>
+                <view bindtap="showShopQe" class="flists-col">
+                    <image class="item-icon" src="/images/sewm.png"></image>
+                    <view class="item-name">我的二维码</view>
+                    <view class="num">总{{info.shop.pay_times}}单</view>
+                </view>
+                <navigator url="/pages/socre/menu/index" class="flists-col">
+                    <image class="item-icon" src="/images/score.png"></image>
+                    <view class="item-name">我的积分</view>
+                    <view class="num">{{info.user.score}}</view>
+                </navigator>
+            </view>
+            <view class="flists-row">
+                <navigator url="/pages/list/sale/index" class="flists-col">
+                    <image class="item-icon" src="/images/djl.png"></image>
+                    <view class="item-name">总销售额</view>
+                    <view class="num">￥{{info.shop.sales}}</view>
+                </navigator>
+                <navigator url="/pages/list/backed/index" class="flists-col">
+                    <image class="item-icon" src="/images/yjl.png"></image>
+                    <view class="item-name">已发放奖励</view>
+                    <view class="num">共 {{info.shop.backed_num}} 单 {{info.shop.backed_money}} 元</view>
+                </navigator>
+                <navigator wx:if="{{appType == 'vip' || appType == 'vipshop'}}" url="/pages/list/cashlog/index" class="flists-col">
+                    <image class="item-icon" src="/images/ydz.png"></image>
+                    <view class="item-name">已提现金额</view>
+                    <view class="num">￥{{info.user.cash_out}}</view>
+                </navigator>
+            </view>
+        </view>
+        <view class="btn-box" style="margin-top:40rpx;">
+            <navigator url="/pages/shop/setting/index" class="btn-setting">设置</navigator>
+        </view>
+        <view wx:if="{{appType == 'shop'}}" class="msg" style="font-size:12px;color:red;">
+            本系统不做奖励，获得惊喜后请到店领取。
+        </view>
+    </block>
+    <!--服务商，代理商，合伙人  -->
+    <block wx:if="{{info.user.role == 50 || info.user.role == 40 || info.user.role == 30}}">
+        <view class="cashout-tar cashout-bar">
+            <text>我的余额：¥ {{info.agent.moneyout}}</text>
+            <navigator url="/pages/list/shop/index?m=1" class="weui-btn mini-btn">提现</navigator>
+            <navigator url="/pages/list/balabce/index" class="weui-btn mini-btn">余额记录</navigator>
+        </view>
+        <view class="flists">
+            <view class="flists-row">
+                <navigator url="/pages/list/shop/index?m=0" class="flists-col">
+                    <image class="item-icon" src="/images/yshop.png"></image>
+                    <view class="item-name">已绑定店铺</view>
+                    <view class="num">{{info.agent.shops}} 个</view>
+                </navigator>
+                <navigator url="/pages/list/shop/index?m=2" class="flists-col">
+                    <image class="item-icon" src="/images/wshop.png"></image>
+                    <view class="item-name">未绑定店铺</view>
+                    <view class="num">{{info.agent.unshops}} 个</view>
+                </navigator>
+                <navigator url="/pages/socre/menu/index" class="flists-col">
+                    <image class="item-icon" src="/images/score.png"></image>
+                    <view class="item-name">我的积分</view>
+                    <view class="num">{{info.user.score}}</view>
+                </navigator>
+            </view>
+            <view class="flists-row">
+                <navigator url="/pages/list/shop/index?m=1" class="flists-col">
+                    <image class="item-icon" src="/images/kshop.png"></image>
+                    <view class="item-name">可提现店铺</view>
+                    <view class="num">￥{{info.agent.moneyout}}</view>
+                </navigator>
+                <view wx:if="{{info.user.role == 50}}" class="flists-col">
+                    <image class="item-icon" src="/images/sewm.png"></image>
+                    <view class="item-name">剩余二维码</view>
+                    <view class="num">{{info.agent.num}} 个</view>
+                </view>
+                <view wx:if="{{info.user.role==30 || info.user.role==40}}" class="flists-col">
+                    <image class="item-icon" src="/images/sewm.png"></image>
+                    <view class="item-name">剩余开店数量</view>
+                    <view class="num">{{info.agent.num}} 个</view>
+                </view>
+            </view>
+        </view>
+        <navigator url="/pages/list/cashlog/index" class="cashout-tar">
+            <text>已提现金额：￥{{info.agent.moneyin}}</text>
+        </navigator>
+        <view class="cashout-tarbar" wx:if="{{info.user.role == 40}}" bindtap="createPartnerQr">
+            <text class="text">招募合伙人 {{info.agent.partner_num}}</text>
+            <text class="icon-text">招募</text>
+        </view>
+        <view class="cashout-tarbar" bindtap="openshop">
+            <text class="text">我要开店</text>
+            <text class="icon-text">开店</text>
+        </view>
+    </block>
+    <view class="bottom-center" bindtap="clearCache"> <text>@ 深圳微享购</text></view>
+</view>

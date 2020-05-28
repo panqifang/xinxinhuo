@@ -1,0 +1,60 @@
+
+<import src="/zanui/loadmore/index.wxml" />
+<import src="../../template/temp.wxml" />
+
+<view class="container">
+    <view class="user-view" wx:if="{{role === 40 || role === 50 || role === 30 }}">
+        <template data="{{userInfo}}" is="header"/>
+        <!--已绑定　  -->
+        <view wx:if="{{listType === 0}}">
+            <view class="shop-title">已绑定店铺：</view>
+            <block wx:for="{{orders}}" wx:key="{{index}}">
+                <view class="flex-row log-list">
+                    <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                    <view class="flex-column">
+                        <view class="title">{{item.title}}</view>
+                        <view class="time">{{item.create_time}} 总提成：{{item.money_sum}}</view>
+                    </view>
+                    <view class="money">￥{{item.money}}</view>
+                </view>
+            </block>
+        </view>
+        <!--可提现  -->
+        <view wx:if="{{listType === 1}}">
+            <navigator url="/pages/cashout/all/index" class="btn-setting">合并提现</navigator>
+            <view class="shop-title">可提现店铺：</view>
+            <block wx:for="{{orders}}" wx:key="{{index}}">
+                <navigator class="flex-row log-list" url="/pages/cashout/default/index?shopid={{item.shopid}}">
+                    <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                    <view class="flex-column">
+                        <view class="title">{{item.title}}</view>
+                        <view class="time">{{item.date}} 总提成：{{item.money_sum}}</view>
+                    </view>
+                    <view class="money">￥{{item.money}}</view>
+                    <!-- <navigator class="mini-btn" url="/pages/cashout/default/index">提现</navigator> -->
+                    <view class="zan-icon zan-icon-arrow"></view>
+                </navigator>
+            </block>
+        </view>
+        <!--未绑定  -->
+        <view wx:if="{{listType === 2}}">
+            <view class="shop-title">未绑定店铺：</view>
+            <block wx:for="{{orders}}" wx:key="{{index}}">
+                <view>
+                    <view class="log-list flex-row">
+                        <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                        <view class="flex-column">
+                            <view class="title">{{item.nickname}}</view>
+                            <view class="time">{{item.create_time}} 创建</view>
+                        </view>
+                        <view class="money">
+                            <button class="mini-btn" size="mini" data-imgurl="{{item.code_imgurl}}" bindtap="seeShopCode" data-shopid="{{item.shopid}}" type="default" size="mini">查看</button>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <template wx:if="{{nodata}}" is="no-data"/>
+    <template is="zan-loadmore" data="{{loading}}" />
+</view>

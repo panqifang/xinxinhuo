@@ -1,0 +1,29 @@
+<import src="/zanui/select/index.wxml" />
+<import src="/zanui/toast/index.wxml" />
+
+<view class="container">
+    <view class="bind-top">
+        <image class="avatr" src="{{userInfo.avatar}}"></image>
+        <text class="name">{{userInfo.nickname}}</text>
+    </view>
+    <view class="bind-yes-view" wx:if="{{role === 10}}">
+        <form bindsubmit="formSubmit" bindreset="formReset">
+            <view class="add-title">输入手机号码</view>
+            <view class="zan-panel">
+                <view class="zan-cell zan-field">
+                    <view class="zan-cell__hd zan-field__title">手机号码</view>
+                    <input type="number" maxlength="11" placeholder="请输入手机号码" name="mobile" value="{{userInfo.mobile}}" class="zan-field__input zan-cell__bd" />
+                </view>
+            </view>
+            <view class="zan-btns">
+                <button class="zan-btn zan-btn--primary" form-type="submit">提交</button>
+            </view>
+        </form>
+    </view>
+    <view wx:if="{{role === 20 || role === 30 || role === 40 || role === 50}}" class="bind-no-view">
+        <view>
+            目前仅仅允许用户加盟
+        </view>
+    </view>
+</view>
+<template is="zan-toast" data="{{ zanToast }}"></template>

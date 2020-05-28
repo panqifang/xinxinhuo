@@ -1,0 +1,72 @@
+{
+    "pages": [
+        "pages/home/home",
+        "pages/help/index",
+        "pages/list/sale/index",
+        "pages/user/user",
+        "pages/merge/index",
+        "pages/web/index",
+        "pages/user/getinfo",
+        "pages/partner/index",
+        "pages/scan/index",
+        "pages/league/index",
+        "pages/suggest/index",
+        "pages/phone/bind",
+        "pages/shop/setting/index",
+        "pages/cashout/all/index",
+        "pages/cashout/default/index",
+        "pages/shop/open/index",
+        "pages/list/shop/index",
+        "pages/list/balancecount/index",
+        "pages/list/balabce/index",
+        "pages/map/index",
+        "pages/shop/info/index",
+        "pages/socre/menu/index",
+        "pages/socre/give/index",
+        "pages/list/score/index",
+        "pages/list/scoreshop/index",
+        "pages/list/scorelog/index",
+        "pages/list/backing/index",
+        "pages/list/cashlog/index",
+        "pages/list/backed/index",
+        "pages/list/backinfo/index",
+        "pages/list/backshop/index"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black",
+        "backgroundColor": "#f6f6f6"
+    },
+    "tabBar": {
+        "color": "#666666",
+        "selectedColor": "#00923F",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/map/index",
+                "iconPath": "images/scan.png",
+                "selectedIconPath": "images/scanselect.png",
+                "text": "附近商户"
+            },
+            {
+                "pagePath": "pages/home/home",
+                "iconPath": "images/user.png",
+                "selectedIconPath": "images/userselect.png",
+                "text": "我的订单"
+            },
+            {
+                "pagePath": "pages/help/index",
+                "iconPath": "images/order.png",
+                "selectedIconPath": "images/orderselect.png",
+                "text": "账单中心"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 6000,
+        "connectSocket": 20000,
+        "uploadFile": 60000,
+        "downloadFile": 30000
+    }
+}

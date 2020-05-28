@@ -1,0 +1,91 @@
+<import src="/zanui/field/index.wxml" />
+<import src="/zanui/toast/index.wxml" />
+<import src="/zanui/loadmore/index.wxml" />
+<import src="../template/agress.wxml" />
+
+<view class="container" wx:if="{{role === 10}}">
+    <view wx:if="{{status === 50}}">
+        <view class="shop-info">
+            <image class="top-logo" src="{{shop.logo}}"></image>
+            <view class="top-title">{{shop.title}}</view>
+            <view class="top-hot">热度：<text>{{shop.pay_times}}</text></view>
+        </view>
+        <view class="shop-body">
+            <view class="pay-title">请输入支付金额</view>
+            <template is="zan-field" data="{{ mode: 'wrapped', title: '', type: 'input', inputType: 'digit', placeholder: '输入支付金额', componentId: 'money' }}"></template>
+
+            <view class="zan-btns">
+                <button class="zan-btn zan-btn--primary" bindtap="popupPay">支付</button>
+            </view>
+        </view>
+        <view class="shop-list">
+            <view class="zan-panel">
+                <view class="zan-cell">
+                    <view class="zan-cell__bd">奖励金额总计：¥ {{shop.backed_money}}</view>
+                </view>
+                <view class="zan-cell">
+                    <view class="zan-cell__bd">最近奖励名单</view>
+                </view>
+                <view class="zan-cell" wx:if="{{nodata}}">
+                    <view class="zan-cell__bd"> <text class="no-data">暂时没有获奖用户</text></view>
+                </view>
+                <template is="zan-loadmore" data="{{ loading: load }}" />
+                <block wx:for="{{backedList}}" wx:key="{{index}}">
+                    <view class="zan-cell">
+                        <image class="zan-cell__icon backed-icon" src="{{item.avatar}}" style="color:#38f;"></image>
+                        <view class="zan-cell__bd">
+                            <view class="cell-name">{{item.nickname}}</view>
+                            <view class="cell-time">{{item.update_time}}</view>
+                        </view>
+                        <view class="zan-cell__ft">¥ {{item.backing_money}}</view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <template wx:elif="status === 10" is="shop"/>
+    <view wx:else>
+        <view><text>该店铺审核中或者未营业，具体请联系客服</text></view>
+    </view>
+</view>
+
+<template is="zan-toast" data="{{ zanToast }}"></template>
+
+<view class="popup-bottom zan-popup zan-popup--bottom {{ showBottomPopup ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask"></view>
+    <view class="zan-popup__container">
+        <view class="pay-popup">
+            <view class="pay-popup-title">
+                <text>需要支付的信息</text>
+                <view class="zan-icon zan-icon-close" bindtap="closePopup" style="color: #666666;"></view>
+            </view>
+            <view class="pay-popup-body">
+                <view class="order-cash">
+                    订单金额： <text>{{orderMoney}}</text>
+                </view>
+                <view class="my-item">
+                    我的余额： <text> {{cash}} 元</text>
+                </view>
+                <view class="my-item">
+                    我的积分： <text>{{score}}</text>
+                </view>
+                <checkbox-group wx:if="{{canScorePay}}" class="radio-group" bindchange="radioChange">
+                    <label class="radio">
+                        <checkbox value="1" checked="{{isScorePay}}"/><text>可使用{{real_score}}积分抵扣{{real_score}}元（使用积分后不参与排队）</text>
+                    </label>
+                </checkbox-group>
+            </view>
+            <view class="pay-popup-btns">
+                <view class="result-pay">
+                    最终付款： <text>{{real_money}} 元</text>
+                </view>
+                <view class="cash-pay" wx:if="{{canPay}}" bindtap="orderBalancePay">
+                    余额支付
+                </view>
+                <view class="wx-pay" bindtap="orderWxPay">
+                    微信支付
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

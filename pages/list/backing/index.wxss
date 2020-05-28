@@ -1,0 +1,187 @@
+.container {
+    padding-top: 100rpx;
+}
+.container::before {
+    display: none;
+}
+.list-item {
+    padding: 20rpx;
+}
+.zan-card__img {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+.zan-panel {
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    border: 1rpx solid #e5e5e5;
+    border-radius: 3rpx;
+}
+.flex-row {
+    margin: 0;
+}
+.order-tip {
+    display: flex;
+    padding-right: 20rpx;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+}
+.btninfo {
+    padding: 20rpx 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+.btninfo .zan-icon {
+    font-size: 24rpx;
+    color: #666666;
+}
+.change-money {
+    margin-right: 10rpx;
+    color: darkred;
+}
+
+.zan-popup__container {
+    width: 100%;
+}
+.ancc {
+    overflow: hidden;
+    background: #f6f6f6;
+}
+.ancc-item {
+    width: 100%;
+    padding: 24rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #e5e5e5;
+    background: #ffffff;
+}
+.ancc-item text {
+    font-size: 30rpx;
+}
+.cannel {
+    margin-top: 20rpx;
+}
+.tip-item {
+    flex-direction: column;
+}
+.tip-item .tip {
+    font-size: 24rpx;
+    color: #999999;
+}
+.order-tip {
+    background: #ffffff;
+}
+
+.backlist {
+    margin-bottom: 10rpx;
+    background: #ffffff;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    box-sizing: border-box;
+}
+.backlist-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.back-top {
+    display: flex;
+    align-items: center;
+    padding: 20rpx;
+    padding-left: 0;
+    /* border-bottom: 1px solid rgba(203, 203, 203, 0.2); */
+}
+.btl {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.btl .logo {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+}
+.btl .title {
+    font-size: 32rpx;
+    color: #333333;
+    margin-left: 20rpx;
+}
+.back-body {
+    padding: 16rpx 0;
+}
+.back-body .time {
+    padding: 6rpx;
+    padding-left: 0;
+    font-size: 28rpx;
+    color: #666666;
+}
+.back-top .money {
+    color: darkred;
+}
+
+.order-box {
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    overflow: hidden;
+    margin-top: 20rpx;
+}
+.backlist {
+    margin: 0 26rpx;
+    margin-bottom: 60rpx;
+}
+.title-tip {
+    display: flex;
+    flex-direction: column;
+}
+.title-tip .text {
+    font-size: 30rpx;
+    color: #333333;
+    padding-left: 20rpx;
+}
+.title-tip .date {
+    font-size: 24rpx;
+    color: #999999;
+}
+.backing-cash {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50rpx 0;
+}
+.backing-cash .text {
+    font-size: 32rpx;
+    color: #777777;
+    margin-bottom: 6rpx;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.backing-cash .money {
+    font-size: 80rpx;
+    color: #000000;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.detail-btn {
+    font-size: 30rpx;
+    color: #666666;
+    flex: 1;
+}
+.title-tip {
+    flex: 1;
+}
+.btip {
+    font-size: 26rpx;
+    color: #999999;
+    padding: 0rpx 0 20rpx;
+}
+.glj {
+    font-size: 12px;
+}

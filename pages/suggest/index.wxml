@@ -1,0 +1,58 @@
+
+<import src="/zanui/toast/index.wxml" />
+
+<view class="container">
+    <view class="bind-top">
+        <image class="avatr" src="{{userInfo.avatar}}"></image>
+        <text class="name">{{userInfo.nickname}}</text>
+    </view>
+    <view class="bind-yes-view" wx:if="{{role === 10}}">
+        <block wx:if="{{can === 0}}">
+            <form bindsubmit="formSubmit" bindreset="formReset">
+                <view class="zan-panel">
+                    <view class="zan-cell zan-field">
+                        <view class="zan-cell__hd zan-field__title">你的姓名</view>
+                        <input type="text" placeholder="请输入你的姓名" name="name" class="zan-field__input zan-cell__bd" value="{{userInfo.nickname}}" />
+                    </view>
+                    <view class="zan-cell zan-field">
+                        <view class="zan-cell__hd zan-field__title">你的手机号码</view>
+                        <input type="number" maxlength="11" placeholder="请输入手机号码" name="phone" value="{{userInfo.phone}}" class="zan-field__input zan-cell__bd" />
+                    </view>
+                </view>
+                <view class="zan-panel">
+                    <view class="zan-cell zan-field">
+                        <view class="zan-cell__hd zan-field__title">选择店铺</view>
+                        <picker mode="selector" class="zan-field__input zan-cell__bd" range="{{ shoplists }}" value="{{ areaIndex }}" range-key="title" bindchange="shopPickerChange">
+                            <view>{{shopName}}</view>    
+                        </picker>
+                    </view>
+                </view>
+                <view class="zan-panel">
+                    <view class="zan-cell zan-field zan-field-textarea">
+                        <view class="zan-cell__hd zan-field__title">投诉内容</view>
+                        <textarea class="zan-field__input zan-cell__bd" name="content" placeholder="输入投诉内容" style="height: 200rpx;" />
+                    </view>
+                </view>
+                <view class="zan-btns">
+                    <button class="zan-btn zan-btn--primary" form-type="submit">提交</button>
+                </view>
+                <view class="msg">
+                    声明：请认真填写以上信息，并核对。如有伪造概不理会。
+                </view>
+            </form>
+        </block>
+        <block wx:else>
+            <view class="bind-no-view">
+                <view>
+                    你还没有消费的店铺，无法投诉店铺
+                </view>
+            </view>
+        </block>
+    </view>
+    <view wx:if="{{role === 20 || role === 30 || role === 40 || role === 50}}" class="bind-no-view">
+        <view>
+            目前只有用户能投诉
+        </view>
+    </view>
+</view>
+<template is="zan-toast" data="{{ zanToast }}"></template>

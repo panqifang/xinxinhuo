@@ -1,0 +1,15 @@
+<view class="container" wx:if="{{pageShow}}">
+
+    <view class="app">
+        <image class="app__img" src="{{appinfo.logo}}"></image>
+        <text class="app__name">{{appinfo.name}}</text>
+    </view>
+    <view class="get-info">
+        <view class="get-info-text">
+            <view class="title">为了你更好使用系统，{{appinfo.name}}需要允许获取头像、昵称等一些信息的授权</view>
+        </view>
+    </view>
+    <view class="get-info">
+        <button class="zan-btn zan-btn--primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo" form-type="submit">授权使用</button>
+    </view>
+</view>

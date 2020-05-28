@@ -1,0 +1,118 @@
+
+<import src="/zanui/loadmore/index.wxml" />
+<import src="../template/temp.wxml" />
+<import src="/zanui/tab/index.wxml" />
+<import src="/zanui/toast/index.wxml" />
+
+<view class="container">
+    <block class="user-view" wx:if="{{role === 10}}">
+        <view class="topbar">
+            <view class="meminfo">
+                <view class="userinfo-view">
+                    <image catchtap="updateUserInfo" class="avatar" src="{{userInfo.avatar}}" background-size="cover"></image>
+                    <view class="view-title">
+                        <view class="t-name">{{userInfo.nickname}}</view>
+                        <view class="t-cashd">已到账金额: ￥{{info.user.cash_out}}</view>
+                    </view>
+                </view>
+                <view class="u-btns" wx:if="{{merage || !info.user.mobile}}">
+                    <navigator wx:if="{{merage}}" class="u-btn" url="/pages/merge/index">合并数据</navigator>
+                    <navigator wx:if="{{!info.user.mobile}}" class="u-btn" url="/pages/phone/bind">绑定手机</navigator> 
+                </view>
+            </view>
+            <view class="right-btn">
+                <navigator class="zan-cell zan-cell--access" url="/pages/cashout/default/index">
+                    <view class="zan-cell__bd" style="font-size: 12px;">我的余额：¥ {{info.user.cash}}</view>
+                    <view class="zan-cell__ft"></view>
+                </navigator>
+                <navigator class="zan-cell zan-cell--access" url="/pages/list/backed/index">
+                    <view class="zan-cell__bd" style="font-size: 12px;">已领取订单: ￥{{info.user.backed_money}}</view>
+                    <view class="zan-cell__ft"></view>
+                </navigator>
+            </view>
+        </view>
+        
+        <view class="swiper__box">
+            <swiper wx:if="{{wiperdata.length > 1}}" class="swiper" autoplay="{{wiperdata.length > 1}}"  vertical="{{true}}" circular="{{true}}">
+                <block wx:for="{{wiperdata}}" wx:key="{{idx}}" wx:for-index="idx" wx:for-item="swipers">
+                    <swiper-item class="swp-tiem">
+                        <block wx:for="{{swipers}}" wx:key="{{index}}" wx:for-index="index" wx:for-item="item">
+                            <view class="swiper-item-user">
+                                <image class="swiper-avatar" src="{{item.avatar}}" background-size="cover"></image>
+                                <view class="swiper-tip">
+                                    <view class="l-name">{{item.nickname}}</view>
+                                    <view class="l-tsts">已经领取 <text class="co-r">{{item.backing_money}}</text></view>
+                                </view>
+                                <view class="yan">元</view>
+                            </view>
+                        </block>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+    
+        <view class="cashout-tar cashout-bar tcr">
+            <view class="tips">消费有惊喜，天天拿奖励</view>
+            <text class="paymens">已有{{info.num}}人次消费</text>
+        </view>
+
+        <form bindsubmit="formSubmit" bindreset="formReset">
+            <view class="zan-panel" style="margin-bottom: 20rpx;">
+                <view class="zan-cell zan-field">
+                    <view class="zan-cell__hd zan-field__title">手机号码</view>
+                    <input type="number" maxlength="11" placeholder="请输入手机号码" name="mobile" value="" class="zan-field__input zan-cell__bd" />
+                    <view class="zan-cell__ft">
+                        <button form-type="submit" class="zan-btn zan-btn--small zan-btn--primary">我要加盟</button>
+                    </view>
+                </view>
+            </view>
+        </form>
+        <view class="msg ds" style="color:#999;font-size:12px;padding: 20rpx;">
+            <navigator class="suggest-btn" url="/pages/suggest/index">投诉/建议</navigator>
+        </view>
+        <view class="msg ds" style="color:#999;font-size:12px;">
+            <view>温馨提示：</view>
+        </view>
+        
+        <view class="msg" style="color:#999;font-size:12px;">
+            活动规则和解释权归店家所有,本工具仅提供营销服务
+        </view>
+        <view class="msg" style="color:#999;font-size:12px;">
+            ①每笔消费有鼓励金，鼓励金随时可领取
+        </view>
+        <view class="msg" style="color:#999;font-size:12px;">
+            ②一般情况下，鼓励金随着消费人数的增加而增加，随着领取鼓励金人数的增加而减少
+        </view>
+    
+        
+    </block>
+    <view class="shop-view" wx:if="{{role === 20}}">
+        <!--tab  -->
+        <template class="tab" is="zan-tab" data="{{tab: tab, componentId: 'tab'}}"></template>
+        <view class="lists" wx:if="{{orders.length > 0}}">
+            <block wx:for="{{orders}}" wx:key="{{index}}">
+                <view class="log-list flex-row">
+                    <view wx:if="{{tab.selectedId === 'backing'}}" class="num">{{index + 1}}</view>
+                    <image class="logo" src="{{item.avatar}}" background-size="cover"></image>
+                    <view class="flex-column">
+                    <view class="title">{{item.nickname}}</view>
+                    <view class="time">订单时间：{{item.create_time}}</view>
+                    </view>
+                    <view wx:if="{{tab.selectedId === 'ddhing'}}" class="money">￥{{item.total_fee}}</view>
+                    <view wx:else class="money">
+                        <view wx:if="{{item.switcher == 4}}" style="font-size:12px;color: #333333;">发放奖励</view>
+                        ￥{{item.relMomey}}
+                        <text class="pettext" wx:if="{{item.switcher != 4}}">奖励{{item.order_pay_rate}}%</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <template wx:if="{{nodata}}" is="no-data"/>
+    <template is="zan-loadmore" data="{{loading}}" />
+    <view wx:if="{{role === 30 || role === 40 || role === 50}}">
+        <template wx:if="{{true}}" is="no-data"/>
+    </view>
+</view>
+
+<template is="zan-toast" data="{{ zanToast }}"></template>

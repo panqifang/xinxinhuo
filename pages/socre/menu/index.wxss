@@ -1,0 +1,96 @@
+
+.content {
+    padding-top: 130rpx;
+    overflow: hidden;
+}
+
+.navigator {
+  margin: 20rpx 0;
+  padding: 30rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.navigator-text {
+  flex: 1;
+}
+
+.navigator-arrow {
+  padding-right: 56rpx;
+  position: relative;
+  font-size: smaller;
+  color: #19AC3B;
+}
+
+.navigator-arrow:after {
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #888;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  margin-top: -10rpx;
+  right: 28rpx;
+}
+
+.user-role {
+  position: absolute;
+  top: 80rpx;
+  right: 60rpx;
+}
+
+.btn-setting {
+  background: green;
+  margin: 30rpx;
+  color: white;
+  padding-left: 14px;
+  padding-right: 14px;
+  box-sizing: border-box;
+  font-size: 36rpx;
+  text-align: center;
+  text-decoration: none;
+  line-height: 2.4;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  background-color: green;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn-money {
+  color: #000;
+  background-color: #f8f8f8;
+}
+
+.msg{
+  font-size: small;
+  color: #EE5555;
+  text-align: left;
+  padding-left:20rpx;
+}
+
+.hbbtn {
+  position: absolute;
+  left: 20rpx;
+  top: 120rpx;
+  padding: 6rpx 10rpx;
+  background: #4FA5FF;
+  color: #ffffff;
+  border-radius: 3px;
+}
+.suggust {
+  top: 40rpx;
+}
+.navigator-noarrow {
+  padding-right: 106rpx;
+  position: relative;
+  font-size: smaller;
+  color: dodgerblue;
+}
